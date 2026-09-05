@@ -130,16 +130,23 @@ a{color:inherit;text-decoration:none}
   padding:0 var(--gut) 26px;
 }
 .hero__plate{position:absolute;inset:0;overflow:hidden}
-.hero__plate img{opacity:.42;filter:grayscale(.65) contrast(1.3);transform:scale(1.14)}
+.hero__plate img{opacity:.38;filter:grayscale(.85) contrast(1.45) brightness(.8);transform:scale(1.14)}
 .hero__reveal{
-  position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;
+  position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden;
   --x:50%;--y:50%;--r:0px;
   -webkit-mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 97%,transparent 100%);
   mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 97%,transparent 100%);
 }
-.hero__reveal img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);filter:contrast(1.1) saturate(1.05)}
+.hero__reveal img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);
+  filter:contrast(1.18) saturate(1.25) brightness(1.22)}
+.hero__ring{
+  position:absolute;z-index:4;pointer-events:none;border-radius:50%;
+  border:1px solid rgba(232,64,90,.85);
+  left:0;top:0;width:0;height:0;margin:0;opacity:0;
+  box-shadow:0 0 40px rgba(179,18,47,.35);
+}
 .hero__plate::after{
-  content:"";position:absolute;inset:0;z-index:2;
+  content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(13,13,13,.9) 0%,rgba(13,13,13,.35) 40%,rgba(13,13,13,.97) 100%);
 }
 .hero__body{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(24px,4vh,52px)}
@@ -311,6 +318,22 @@ body.no-gsap .plate img{position:relative;top:auto;right:auto;width:100%;height:
   .pb{display:none}
 }
 
+/* pieza de diseño intercalada: no es una foto, es un entregable */
+.pbreak{position:relative;border-top:1px solid var(--crimson)}
+.pbreak figure{position:relative;margin:0;overflow:hidden}
+.pbreak img{width:100%;height:auto;display:block}
+.pbreak figcaption{
+  position:absolute;left:var(--gut);bottom:clamp(16px,3vh,34px);
+  font-family:var(--data);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);
+  text-shadow:0 2px 16px rgba(0,0,0,.95);max-width:44ch;
+}
+.pbreak figcaption span{
+  display:inline-block;background:var(--crimson);color:var(--cream);
+  padding:4px 9px;margin-right:11px;letter-spacing:.16em;
+}
+.pbreak figcaption em{display:block;font-style:normal;text-transform:none;letter-spacing:.02em;color:#C7C1B8;margin-top:8px}
+@media (max-width:600px){.pbreak figcaption{position:static;padding:14px var(--gut) 18px;text-shadow:none;background:#0A0A0A}}
+
 /* respiro entre la secuencia y las composiciones */
 .breath{padding:clamp(70px,14vh,170px) var(--gut);border-top:1px solid var(--hair);display:grid;place-items:center;text-align:center}
 .breath__line{font-family:var(--display);text-transform:uppercase;line-height:.92;letter-spacing:-.01em;
@@ -342,6 +365,7 @@ body.no-gsap .plate img{position:relative;top:auto;right:auto;width:100%;height:
 .kit__slot{font-family:var(--data);font-size:11px;letter-spacing:.14em;color:var(--ash)}
 .kit__name{font-family:var(--display);text-transform:uppercase;font-size:clamp(18px,2.3vw,26px);letter-spacing:.01em}
 .kit__why{color:#A5A099;font-size:.92em}
+.kit__why a{color:var(--crimson-ink);border-bottom:1px solid rgba(232,64,90,.4)}
 @media (max-width:760px){.kit__row{grid-template-columns:1fr;gap:6px}}
 
 .rounds{counter-reset:r;margin-top:clamp(46px,8vh,90px)}
@@ -449,7 +473,7 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
 <main id="top">
 
   <section class="hero">
-    <div class="hero__plate" aria-hidden="true"><img data-shot="hero" alt=""><div class="hero__reveal" id="heroReveal"><img data-shot="hero" alt=""></div></div>
+    <div class="hero__plate" aria-hidden="true"><img data-shot="hero" alt=""><div class="hero__reveal" id="heroReveal"><img data-shot="hero" alt=""></div><span class="hero__ring" id="heroRing" aria-hidden="true"></span></div>
     <div class="hero__body">
       <p class="hero__kicker">Judo · Jiu jitsu · Grappling · MMA · Boxeo</p>
       <h1>
@@ -462,7 +486,7 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
           Entrenamientos, carteleras y esquina: el segundo exacto en que un cuerpo
           decide seguir o rendirse.
         </p>
-        <p class="hero__scroll"><span class="hero__rail"><i></i></span> Bajá para entrar</p>
+        <p class="hero__scroll"><span class="hero__rail"><i></i></span> Baja para entrar</p>
       </div>
     </div>
   </section>
@@ -526,6 +550,13 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
   </section>
   <div id="acto-2"></div>
 
+  <section class="pbreak" id="pieza-a">
+    <figure>
+      <img data-piece="1" alt="Pieza gráfica para Kyomu Murcia Judo Team: Domina el tatami" loading="lazy">
+      <figcaption><span>Pieza</span>Domina el tatami<em>Afiche de temporada armado con la proyección del plano 08</em></figcaption>
+    </figure>
+  </section>
+
   <section class="breath" aria-hidden="true">
     <p class="breath__line">Todo se fotografía tres veces:<br><em>general</em>, <em>medio</em> y <em>detalle</em>.</p>
   </section>
@@ -546,6 +577,13 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
         <figure class="pc is-pair" style="left:63%;top:30%;width:20%;aspect-ratio:0.563;z-index:6;--rot:2deg"><img data-shot="7" alt="El mismo agarre desde más cerca" loading="lazy"><figcaption><span>07</span>El empuje</figcaption></figure>
         <span class="pw" aria-hidden="true" style="left:85%;top:82%;font-size:2.4vw;z-index:7;--rot:0deg">06·07</span>
       </div>
+  </section>
+
+  <section class="pbreak" id="pieza-b">
+    <figure>
+      <img data-piece="5" alt="Pieza gráfica para Kyomu Murcia Judo Team: Kyomu Murcia" loading="lazy">
+      <figcaption><span>Pieza</span>Kyomu Murcia<em>Presentación de equipo con los retratos de la misma jornada</em></figcaption>
+    </figure>
   </section>
 
   <section class="slash-sec" id="grid-bjj" aria-label="Tatami">
@@ -577,17 +615,23 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
         <span class="pb" aria-hidden="true" style="left:50%;top:80%;width:38%;height:2.5%;z-index:6;--rot:0deg"></span>
       </div>
       <div class="comp" style="--ar:16/9" data-label="04">
-        <figure class="pc" style="left:26%;top:3%;width:62%;aspect-ratio:1.500;z-index:2;--rot:0deg"><img data-shot="25" alt="Control desde la guardia sobre el tatami gris" loading="lazy"><figcaption><span>25</span>La guardia</figcaption></figure>
-        <figure class="pc is-pair" style="left:2%;top:32%;width:22%;aspect-ratio:0.750;z-index:4;--rot:-2deg"><img data-shot="18" alt="Dos compañeros en control de espalda mirando a cámara" loading="lazy"><figcaption><span>18</span>Control de espalda</figcaption></figure>
-        <figure class="pc is-pair" style="left:23%;top:50%;width:18%;aspect-ratio:0.750;z-index:5;--rot:2deg"><img data-shot="19" alt="El mismo control desde más cerca" loading="lazy"><figcaption><span>19</span>Dos caras</figcaption></figure>
-        <figure class="pc is-pair" style="left:42%;top:62%;width:15%;aspect-ratio:0.750;z-index:6;--rot:-1deg"><img data-shot="20" alt="Primerísimo plano de las caras y el agarre" loading="lazy"><figcaption><span>20</span>Sin salida</figcaption></figure>
-        <span class="pw is-fill" aria-hidden="true" style="left:62%;top:58%;font-size:7vw;z-index:3;--rot:0deg">TRES</span>
-        <span class="pw is-fill" aria-hidden="true" style="left:62%;top:74%;font-size:7vw;z-index:3;--rot:0deg">PASOS</span>
+        <span class="pw" aria-hidden="true" style="left:58%;top:70%;font-size:6vw;z-index:3;--rot:0deg">DOS</span>
+        <span class="pw is-fill" aria-hidden="true" style="left:58%;top:82%;font-size:6vw;z-index:3;--rot:0deg">DISTANCIAS</span>
+        <figure class="pc is-pair" style="left:44%;top:4%;width:52%;aspect-ratio:1.500;z-index:2;--rot:0deg"><img data-shot="25" alt="Control desde la guardia sobre el tatami gris" loading="lazy"><figcaption><span>25</span>La guardia</figcaption></figure>
+        <figure class="pc is-pair" style="left:3%;top:22%;width:30%;aspect-ratio:0.750;z-index:5;--rot:-2deg"><img data-shot="20" alt="Primerísimo plano de las caras y el agarre" loading="lazy"><figcaption><span>20</span>Sin salida</figcaption></figure>
+        <figure class="pc is-pair" style="left:36%;top:56%;width:17%;aspect-ratio:0.750;z-index:6;--rot:2deg"><img data-shot="18" alt="Dos compañeros en control de espalda mirando a cámara" loading="lazy"><figcaption><span>18</span>Control de espalda</figcaption></figure>
       </div>
-      <div class="comp" style="--ar:3/2" data-label="05">
-        <figure class="pc" style="left:0%;top:0%;width:100%;aspect-ratio:1.500;z-index:1;--rot:0deg"><img data-shot="26" alt="Tres compañeros sentados en el tatami riéndose al terminar" loading="lazy"><figcaption><span>26</span>Después</figcaption></figure>
+      <div class="comp" style="--ar:4/3" data-label="05">
+        <figure class="pc" style="left:0%;top:0%;width:100%;aspect-ratio:1.333;z-index:1;--rot:0deg"><img data-shot="26" alt="Tres compañeros sentados en el tatami riéndose al terminar" loading="lazy"><figcaption><span>26</span>Después</figcaption></figure>
         <span class="pw" aria-hidden="true" style="left:4%;top:74%;font-size:11vw;z-index:3;--rot:0deg">DESPUÉS</span>
       </div>
+  </section>
+
+  <section class="pbreak" id="pieza-c">
+    <figure>
+      <img data-piece="6" alt="Pieza gráfica de jiu jitsu: Scramble, BJJ live rolling" loading="lazy">
+      <figcaption><span>Pieza</span>Scramble<em>Gráfica de entrenamiento armada con el derribo del plano 22</em></figcaption>
+    </figure>
   </section>
 
   <section class="band" id="creed">
@@ -610,7 +654,7 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
       <div class="kit__row rise"><span class="kit__slot">01</span><span class="kit__name">Competición</span><span class="kit__why">Torneo o cartelera completa: pesaje, combates, podio. Selección para prensa la misma noche y galería ordenada por categoría.</span></div>
       <div class="kit__row rise"><span class="kit__slot">02</span><span class="kit__name">Entrenamiento</span><span class="kit__why">Sesión dentro del tatami o el gimnasio, sin interrumpir la clase. Material listo para redes del club.</span></div>
       <div class="kit__row rise"><span class="kit__slot">03</span><span class="kit__name">Retrato de peleador</span><span class="kit__why">Sesión individual para afiche de pelea, ficha de competidor, sponsors y redes. Luz dura, fondo limpio, formatos listos para cada canal.</span></div>
-      <div class="kit__row rise"><span class="kit__slot">04</span><span class="kit__name">Contenido para clubes</span><span class="kit__why">Acompañamiento mensual: entrenamientos, exámenes de cinturón y competencias, con calendario de entrega.</span></div>
+      <div class="kit__row rise"><span class="kit__slot">04</span><span class="kit__name">Contenido para clubes</span><span class="kit__why">Acompañamiento: entrenamientos, exámenes de cinturón y competencias, más el material gráfico terminado para publicar. <a href="#pieza-a">Ver un ejemplo</a>.</span></div>
     </div>
 
     <div class="rounds" id="metodo">
@@ -624,7 +668,7 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
 
   <section class="booking" id="booking">
     <p class="eyebrow rise">Contratar</p>
-    <h2 class="head rise">Contame qué se pelea y dónde.</h2>
+    <h2 class="head rise">Cuéntame qué se pelea y dónde.</h2>
 
     <div class="wire">
       <div class="wire__line"><label for="fName">Nombre</label><input id="fName" name="nombre" type="text" placeholder="quién escribe" autocomplete="name"></div>
@@ -664,6 +708,9 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
     hero:    './assets/images/hero/hero.jpg',
     retrato: './assets/images/about/retrato.jpg'
   };
+  SRC.p1 = './assets/images/piezas/pieza-01.jpg';
+  SRC.p5 = './assets/images/piezas/pieza-05.jpg';
+  SRC.p6 = './assets/images/piezas/pieza-06.jpg';
   for (var s = 1; s <= 26; s++) SRC[s] = './assets/images/gallery/photo-' + (s < 10 ? '0' : '') + s + '.jpg';
 
   /* tr     'push' = acercamiento continuo sobre la misma acción · 'cut' = corte a otra acción
@@ -693,6 +740,11 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
       "<path d='M0 1500 L1200 0' stroke='%23B3122F' stroke-width='2' opacity='.5'/>" +
       "<text x='70' y='1420' fill='%23F2EDE4' font-family='monospace' font-size='30' opacity='.5'>FALTA " + i + "</text></svg>";
   }
+
+  Array.prototype.forEach.call(document.querySelectorAll('img[data-piece]'), function(img){
+    img.loading = 'lazy'; img.decoding = 'async';
+    img.src = SRC['p' + img.getAttribute('data-piece')] || '';
+  });
 
   Array.prototype.forEach.call(document.querySelectorAll('img[data-shot]'), function(img){
     var k = img.getAttribute('data-shot');
@@ -765,7 +817,8 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
     var hero = document.querySelector('.hero');
     if (!lens || reduced || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
-    var R = 150;
+    var R = 190;
+    var ring = document.getElementById('heroRing');
     var x = 0, y = 0, tx = 0, ty = 0, r = 0, tr = 0, raf = 0, ready = false;
 
     function frame(){
@@ -776,6 +829,11 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
       lens.style.setProperty('--x', x.toFixed(1) + 'px');
       lens.style.setProperty('--y', y.toFixed(1) + 'px');
       lens.style.setProperty('--r', r.toFixed(1) + 'px');
+      if (ring){
+        ring.style.width = ring.style.height = (r * 2).toFixed(1) + 'px';
+        ring.style.transform = 'translate(' + (x - r).toFixed(1) + 'px,' + (y - r).toFixed(1) + 'px)';
+        ring.style.opacity = Math.min(1, r / R) * 0.55;
+      }
       if (Math.abs(tx - x) > .4 || Math.abs(ty - y) > .4 || Math.abs(tr - r) > .4) kick();
     }
     function kick(){ if (!raf) raf = requestAnimationFrame(frame); }
@@ -903,6 +961,14 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
 
     GALLERIES.forEach(buildArena);
 
+  if (!reduced){
+    gsap.utils.toArray('.pbreak figure').forEach(function(el){
+      gsap.fromTo(el, { clipPath:'inset(0% 0% 100% 0%)' },
+        { clipPath:'inset(0% 0% 0% 0%)', duration:.9, ease:'power3.out',
+          scrollTrigger:{ trigger:el, start:'top 90%', once:true } });
+    });
+  }
+
   /* Cada composición entra por partes, con la tipografía adelantándose a las fotos. */
   if (!reduced){
     gsap.utils.toArray('.comp').forEach(function(c){
@@ -938,7 +1004,7 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
       var card = document.getElementById('fCard').value.trim();
       note.classList.remove('is-live');
       if (!name){ note.textContent = 'Falta tu nombre.'; note.classList.add('is-live'); document.getElementById('fName').focus(); return; }
-      if (!card){ note.textContent = 'Contame qué evento es y en qué fecha.'; note.classList.add('is-live'); document.getElementById('fCard').focus(); return; }
+      if (!card){ note.textContent = 'Cuéntame qué evento es y en qué fecha.'; note.classList.add('is-live'); document.getElementById('fCard').focus(); return; }
       window.open('https://wa.me/5491158975177?text=' + encodeURIComponent('Hola Alan, soy ' + name + '. Consulto por: ' + card), '_blank', 'noopener');
       note.textContent = 'Mensaje preparado en WhatsApp.';
     });

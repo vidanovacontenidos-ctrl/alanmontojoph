@@ -24,6 +24,7 @@ _headers                   caché y cabeceras de seguridad (Netlify / Cloudflare
 assets/images/hero/        portada
 assets/images/about/       retrato de la sección "Quién dispara"
 assets/images/gallery/     photo-01 … photo-26
+assets/images/piezas/      pieza-01, 05 y 06 (diseño, intercaladas en las galerías)
 ```
 
 ---
@@ -33,7 +34,7 @@ assets/images/gallery/     photo-01 … photo-26
 Cuatro cosas sin resolver. Las dos primeras son obligatorias.
 
 1. **Reemplazar `TU-DOMINIO.com`.** Aparece en `index.html` (canonical y
-   og:url), en `robots.txt` y en `sitemap.xml`. Buscar y reemplazar por el
+   og:url), en `robots.txt` y en `sitemap.xml`. Buscar y sustituir por el
    dominio real, con `https://` y barra final.
 
 2. **Autorizaciones de imagen de los menores.** Las fotos de judo son de
@@ -60,7 +61,7 @@ control.
 ### Netlify Drop — sin cuenta, dos minutos
 
 1. Entrar a `app.netlify.com/drop`.
-2. Arrastrar **la carpeta completa** (no el zip, no solo el `index.html`).
+2. Arrastra **la carpeta completa** (no el zip, no solo el `index.html`).
 3. Queda publicado en una URL tipo `nombre-al-azar.netlify.app`, con HTTPS.
 4. Para usar el dominio propio: *Domain settings → Add custom domain*, y
    apuntar el DNS donde indique.
