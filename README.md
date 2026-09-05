@@ -95,6 +95,19 @@ el panel del hosting.
 
 ---
 
+## Idiomas
+
+El sitio está en castellano e inglés. El conmutador **ES / EN** está en la
+cabecera. El castellano es el idioma de partida; el inglés se aplica
+sustituyendo el contenido de los elementos marcados con `data-i18n`.
+
+Para cambiar un texto hay que tocarlo en **dos sitios**: el marcado HTML
+(castellano) y el objeto `EN` del guion. Si añades un texto nuevo, ponle un
+`data-i18n="clave"` y añade esa clave a los dos diccionarios, `ES` y `EN`.
+
+El idioma inicial se decide por el del navegador y se recuerda en el
+navegador del visitante.
+
 ## Mantenimiento
 
 ### Cambiar el número de WhatsApp

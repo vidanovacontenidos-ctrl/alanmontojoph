@@ -87,6 +87,10 @@ a{color:inherit;text-decoration:none}
   transition:width .35s cubic-bezier(.16,1,.3,1);
 }
 .masthead__nav a:hover::after{width:100%}
+.lang{background:none;border:0;padding:12px 0 3px;margin-left:8px;cursor:pointer;
+  font-family:var(--data);font-size:11px;letter-spacing:.14em;color:inherit;min-height:44px}
+.lang b{font-weight:400;color:var(--crimson-ink)}
+.lang span{opacity:.4;margin:0 4px}
 @media (max-width:760px){.masthead__nav a:not(.is-key){display:none}}
 
 /* botón */
@@ -319,7 +323,7 @@ body.no-gsap .plate img{position:relative;top:auto;right:auto;width:100%;height:
 .pbreak::after{
   content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--crimson);
 }
-.pbreak figure{position:relative;margin:0 auto;max-width:1500px;overflow:hidden;
+.pbreak figure{position:relative;margin:0 auto;max-width:1500px;overflow:hidden;isolation:isolate;
   box-shadow:0 40px 90px rgba(0,0,0,.7);outline:1px solid rgba(242,237,228,.14);outline-offset:0}
 .pbreak img{width:100%;height:auto;display:block}
 
@@ -444,19 +448,20 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
 
 <div class="load" id="load" aria-hidden="true"></div>
 
-<a class="skip" href="#arena-judo">Saltar al contenido</a>
+<a class="skip" href="#arena-judo" data-i18n="skip">Saltar al contenido</a>
 
 <a class="wa-float" href="https://wa.me/5491158975177?text=Hola%20Alan%2C%20quiero%20consultar%20por%20una%20cobertura" target="_blank" rel="noopener" aria-label="Escribir a Alan por WhatsApp"><span class="wa-ico" aria-hidden="true"></span></a>
 
 <div class="grain" aria-hidden="true"></div>
 
 <header class="masthead">
-  <a class="masthead__id" href="#top">ALAN MONTOJO <span>PH</span></a>
+  <a class="masthead__id" href="#top" data-i18n="id">ALAN MONTOJO <span>PH</span></a>
   <nav class="masthead__nav" aria-label="Principal">
-    <a href="#arena-judo">Judo</a>
-    <a href="#grid-bjj">Jiu jitsu</a>
-    <a href="#metodo">Método</a>
-    <a href="#booking" class="is-key">Contratar</a>
+    <a href="#arena-judo" data-i18n="nav1">Judo</a>
+    <a href="#grid-bjj" data-i18n="nav2">Jiu jitsu</a>
+    <a href="#metodo" data-i18n="nav3">Método</a>
+    <a href="#booking" class="is-key" data-i18n="nav4">Contratar</a>
+    <button class="lang" id="lang" type="button" aria-label="Switch to English"><b>ES</b><span>/</span>EN</button>
   </nav>
 </header>
 
@@ -465,13 +470,13 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
   <section class="hero">
     <div class="hero__plate" aria-hidden="true"><img data-shot="hero" alt=""><div class="hero__reveal" id="heroReveal"><img data-shot="hero" alt=""></div><span class="hero__ring" id="heroRing" aria-hidden="true"></span></div>
     <div class="hero__body">
-      <p class="hero__kicker">Judo · Jiu jitsu · Grappling · MMA · Boxeo</p>
+      <p class="hero__kicker" data-i18n="kicker">Judo · Jiu jitsu · Grappling · MMA · Boxeo</p>
       <h1>
-        <span class="ln"><span>Cuerpo</span></span>
-        <span class="ln indent"><span>a <em>cuerpo</em></span></span>
+        <span class="ln"><span data-i18n="h1a">Cuerpo</span></span>
+        <span class="ln indent"><span data-i18n="h1b">a <em>cuerpo</em></span></span>
       </h1>
       <div class="hero__meta">
-        <p class="hero__scroll"><span class="hero__rail"><i></i></span> Baja para entrar</p>
+        <p class="hero__scroll"><span class="hero__rail"><i></i></span> <span data-i18n="scroll">Baja para entrar</span></p>
       </div>
     </div>
   </section>
@@ -485,23 +490,23 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
 
   <section class="index" aria-label="Índice">
     <div class="index__grid">
-      <h2>Qué<br>vas a<br>ver</h2>
+      <h2 data-i18n="ixt">Qué<br>vas a<br>ver</h2>
       <div class="index__list">
-        <a class="index__item" href="#arena-judo"><span>01</span><b>Judo · secuencia</b><small>8 planos</small></a>
-        <a class="index__item" href="#grid-judo"><span>02</span><b>Judo · en el borde</b><small>4 fotos</small></a>
-        <a class="index__item" href="#grid-bjj"><span>03</span><b>Jiu jitsu</b><small>14 fotos</small></a>
-        <a class="index__item" href="#creed"><span>04</span><b>Sobre mí</b><small>quién dispara</small></a>
-        <a class="index__item" href="#servicios"><span>05</span><b>Servicios</b><small>qué se contrata</small></a>
-        <a class="index__item" href="#metodo"><span>06</span><b>Método</b><small>cómo trabajo</small></a>
-        <a class="index__item" href="#booking"><span>07</span><b>Contratar</b><small>fechas abiertas</small></a>
+        <a class="index__item" href="#arena-judo"><span>01</span><b data-i18n="ix1">Judo · secuencia</b><small data-i18n="ixa">8 planos</small></a>
+        <a class="index__item" href="#grid-judo"><span>02</span><b data-i18n="ix2">Judo · en el borde</b><small data-i18n="ixb">4 fotos</small></a>
+        <a class="index__item" href="#grid-bjj"><span>03</span><b data-i18n="ix3">Jiu jitsu</b><small data-i18n="ixc">14 fotos</small></a>
+        <a class="index__item" href="#creed"><span>04</span><b data-i18n="ix4">Sobre mí</b><small data-i18n="ixd">quién dispara</small></a>
+        <a class="index__item" href="#servicios"><span>05</span><b data-i18n="ix5">Servicios</b><small data-i18n="ixe">qué se contrata</small></a>
+        <a class="index__item" href="#metodo"><span>06</span><b data-i18n="ix6">Método</b><small data-i18n="ixf">cómo trabajo</small></a>
+        <a class="index__item" href="#booking"><span>07</span><b data-i18n="ix7">Contratar</b><small data-i18n="ixg">fechas abiertas</small></a>
       </div>
     </div>
   </section>
 
   <section class="act">
-    <p class="eyebrow">Competición</p>
-    <h2 class="head">Judo</h2>
-    <p class="act__line">Competición. Luz de pabellón, público, tatami de color. Del saludo al suelo.</p>
+    <p class="eyebrow" data-i18n="a1e">Competición</p>
+    <h2 class="head" data-i18n="a1t">Judo</h2>
+    <p class="act__line" data-i18n="a1l">Competición. Luz de pabellón, público, tatami de color. Del saludo al suelo.</p>
   </section>
   <section class="arena" id="arena-judo" data-clock="240" aria-label="Galería de Judo" data-skip="acto-2">
     <h2 class="sr-only">Judo</h2>
@@ -524,7 +529,7 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
         </div>
         <div class="scorebar">
           <span class="scorebar__round">PLANO <em>01</em> / 08</span>
-          <a class="scorebar__skip" href="#acto-2">Saltar</a>
+          <a class="scorebar__skip" href="#acto-2" data-i18n="skip2">Saltar</a>
           <span class="scorebar__track"><i class="scorebar__fill"></i></span>
           <span class="scorebar__clock">4:00</span>
           <span class="scorebar__pips" aria-hidden="true"></span>
@@ -541,14 +546,14 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
   </section>
 
   <section class="breath" aria-hidden="true">
-    <p class="breath__line">Todo se fotografía tres veces:<br><em>general</em>, <em>medio</em> y <em>detalle</em>.</p>
+    <p class="breath__line" data-i18n="breath">Todo se fotografía tres veces:<br><em>general</em>, <em>medio</em> y <em>detalle</em>.</p>
   </section>
 
   <section class="slash-sec" id="grid-judo" aria-label="En el borde">
     <div class="slash__head">
-      <p class="eyebrow rise">Judo</p>
-      <h2 class="head rise">En el borde</h2>
-      <p class="slash__line rise">Lo que pasa cuando nadie está peleando: la espera, el saludo, el agarre que todavía no decidió nada.</p>
+      <p class="eyebrow rise" data-i18n="g1e">Judo</p>
+      <h2 class="head rise" data-i18n="g1t">En el borde</h2>
+      <p class="slash__line rise" data-i18n="g1l">Lo que pasa cuando nadie está peleando: la espera, el saludo, el agarre que todavía no decidió nada.</p>
     </div>
       <div class="comp" style="--ar:16/9" data-label="Judo · verticales">
         <span class="pw" aria-hidden="true" style="left:2%;top:60%;font-size:8vw;z-index:0;--rot:0deg">EN EL</span>
@@ -570,9 +575,9 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
 
   <section class="slash-sec" id="grid-bjj" aria-label="Tatami">
     <div class="slash__head">
-      <p class="eyebrow rise">Jiu jitsu</p>
-      <h2 class="head rise">Tatami</h2>
-      <p class="slash__line rise">Gimnasio cerrado, luz dura, cuerpos encimados. Cada pieza muestra la misma acción a dos o tres distancias.</p>
+      <p class="eyebrow rise" data-i18n="g2e">Jiu jitsu</p>
+      <h2 class="head rise" data-i18n="g2t">Tatami</h2>
+      <p class="slash__line rise" data-i18n="g2l">Gimnasio cerrado, luz dura, cuerpos encimados. Cada pieza muestra la misma acción a dos o tres distancias.</p>
     </div>
       <div class="comp" style="--ar:16/9" data-label="01">
         <span class="pw" aria-hidden="true" style="left:58%;top:10%;font-size:9vw;z-index:1;--rot:0deg">DETALLE</span>
@@ -616,57 +621,57 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
   </section>
 
   <section class="band" id="creed">
-    <p class="eyebrow rise">Quién dispara</p>
+    <p class="eyebrow rise" data-i18n="ce">Quién dispara</p>
     <div class="creed">
       <div class="creed__text">
-        <h2 class="head rise">Soy Alan<br>Montojo.<br>Fotografío<br>combate.</h2>
-        <p class="rise">Judo, jiu jitsu, grappling. Competición y tatami.</p>
-        <p class="rise">Trabajo desde adentro: descalzo en el borde del área o pegado a la línea, a la altura de los ojos del que pelea. Alto contraste, color saturado, luz dura. Un combate es un hecho cinematográfico y merece revelarse como tal.</p>
-        <p class="rise">Una pelea se define en cuatro fotogramas. El resto es ruido. Mi trabajo consiste en llegar antes que el ruido.</p>
+        <h2 class="head rise" data-i18n="ct">Soy Alan<br>Montojo.<br>Fotografío<br>combate.</h2>
+        <p class="rise" data-i18n="c1">Judo, jiu jitsu, grappling. Competición y tatami.</p>
+        <p class="rise" data-i18n="c2">Trabajo desde adentro: descalzo en el borde del área o pegado a la línea, a la altura de los ojos del que pelea. Alto contraste, color saturado, luz dura. Un combate es un hecho cinematográfico y merece revelarse como tal.</p>
+        <p class="rise" data-i18n="c3">Una pelea se define en cuatro fotogramas. El resto es ruido. Mi trabajo consiste en llegar antes que el ruido.</p>
       </div>
       <figure class="creed__portrait marked rise">
         <img data-shot="retrato" alt="Peleador sentado en el borde del tatami, transpirado, entre series">
-        <figcaption>Entre rondas. Descanso de dos minutos.</figcaption>
+        <figcaption data-i18n="cfig">Entre rondas. Descanso de dos minutos.</figcaption>
       </figure>
     </div>
 
     <div class="kit" id="servicios">
-      <p class="eyebrow rise" style="margin-top:clamp(46px,8vh,90px)">Servicios</p>
-      <div class="kit__row rise"><span class="kit__slot">01</span><span class="kit__name">Competición</span><span class="kit__why">Torneo o cartelera completa: pesaje, combates, podio. Selección para prensa la misma noche y galería ordenada por categoría.</span></div>
-      <div class="kit__row rise"><span class="kit__slot">02</span><span class="kit__name">Entrenamiento</span><span class="kit__why">Sesión dentro del tatami o el gimnasio, sin interrumpir la clase. Material listo para redes del club.</span></div>
-      <div class="kit__row rise"><span class="kit__slot">03</span><span class="kit__name">Retrato de peleador</span><span class="kit__why">Sesión individual para afiche de pelea, ficha de competidor, sponsors y redes. Luz dura, fondo limpio, formatos listos para cada canal.</span></div>
-      <div class="kit__row rise"><span class="kit__slot">04</span><span class="kit__name">Contenido para clubes</span><span class="kit__why">Acompañamiento: entrenamientos, exámenes de cinturón y competencias, más el material gráfico terminado para publicar. <a href="#pieza-a">Ver un ejemplo</a>.</span></div>
+      <p class="eyebrow rise" style="margin-top:clamp(46px,8vh,90px)" data-i18n="se">Servicios</p>
+      <div class="kit__row rise"><span class="kit__slot">01</span><span class="kit__name" data-i18n="sn1">Competición</span><span class="kit__why" data-i18n="sw1">Torneo o cartelera completa: pesaje, combates, podio. Selección para prensa la misma noche y galería ordenada por categoría.</span></div>
+      <div class="kit__row rise"><span class="kit__slot">02</span><span class="kit__name" data-i18n="sn2">Entrenamiento</span><span class="kit__why" data-i18n="sw2">Sesión dentro del tatami o el gimnasio, sin interrumpir la clase. Material listo para redes del club.</span></div>
+      <div class="kit__row rise"><span class="kit__slot">03</span><span class="kit__name" data-i18n="sn3">Retrato de peleador</span><span class="kit__why" data-i18n="sw3">Sesión individual para afiche de pelea, ficha de competidor, sponsors y redes. Luz dura, fondo limpio, formatos listos para cada canal.</span></div>
+      <div class="kit__row rise"><span class="kit__slot">04</span><span class="kit__name" data-i18n="sn4">Contenido para clubes</span><span class="kit__why" data-i18n="sw4">Acompañamiento: entrenamientos, exámenes de cinturón y competencias, más el material gráfico terminado para publicar. <a href="#pieza-a">Ver un ejemplo</a>.</span></div>
     </div>
 
     <div class="rounds" id="metodo">
-      <article class="rounds__step rise"><h3>Reconocer el lugar</h3><p>Llego antes del primer combate. Mido la luz del pabellón, ubico las sombras del techo y elijo dos posiciones fijas y una libre. Nunca improviso el encuadre con el tatami lleno.</p></article>
-      <article class="rounds__step rise"><h3>Entrar sin molestar</h3><p>Descalzo en el tatami, o pegado a la línea del área en competición. Siempre a la altura del agarre. Si el fotógrafo se nota, la foto ya se perdió.</p></article>
-      <article class="rounds__step rise"><h3>Cambiar de plano</h3><p>Cada acción se fotografía tres veces: general, medio y detalle. Es lo que convierte una serie de fotos en una secuencia que se puede leer, y lo que sostiene la galería de este sitio.</p></article>
-      <article class="rounds__step rise"><h3>Cerrar la noche</h3><p>Selección en el lugar y primeras imágenes editadas la misma noche. Las fotos sirven mientras la pelea todavía se comenta; el plazo del resto se acuerda según el evento.</p></article>
+      <article class="rounds__step rise"><h3 data-i18n="mt1">Reconocer el lugar</h3><p data-i18n="mp1">Llego antes del primer combate. Mido la luz del pabellón, ubico las sombras del techo y elijo dos posiciones fijas y una libre. Nunca improviso el encuadre con el tatami lleno.</p></article>
+      <article class="rounds__step rise"><h3 data-i18n="mt2">Entrar sin molestar</h3><p data-i18n="mp2">Descalzo en el tatami, o pegado a la línea del área en competición. Siempre a la altura del agarre. Si el fotógrafo se nota, la foto ya se perdió.</p></article>
+      <article class="rounds__step rise"><h3 data-i18n="mt3">Cambiar de plano</h3><p data-i18n="mp3">Cada acción se fotografía tres veces: general, medio y detalle. Es lo que convierte una serie de fotos en una secuencia que se puede leer, y lo que sostiene la galería de este sitio.</p></article>
+      <article class="rounds__step rise"><h3 data-i18n="mt4">Cerrar la noche</h3><p data-i18n="mp4">Selección en el lugar y primeras imágenes editadas la misma noche. Las fotos sirven mientras la pelea todavía se comenta; el plazo del resto se acuerda según el evento.</p></article>
     </div>
 
   </section>
 
   <section class="booking" id="booking">
-    <p class="eyebrow rise">Contratar</p>
-    <h2 class="head rise">Cuéntame qué se pelea y dónde.</h2>
+    <p class="eyebrow rise" data-i18n="be">Contratar</p>
+    <h2 class="head rise" data-i18n="bt">Cuéntame qué se pelea y dónde.</h2>
 
     <div class="wire">
-      <div class="wire__line"><label for="fName">Nombre</label><input id="fName" name="nombre" type="text" placeholder="quién escribe" autocomplete="name"></div>
-      <div class="wire__line"><label for="fCard">Evento</label><input id="fCard" name="evento" type="text" placeholder="disciplina, fecha y sede"></div>
+      <div class="wire__line"><label for="fName" data-i18n="bl1">Nombre</label><input id="fName" name="nombre" type="text" placeholder="quién escribe" autocomplete="name"></div>
+      <div class="wire__line"><label for="fCard" data-i18n="bl2">Evento</label><input id="fCard" name="evento" type="text" placeholder="disciplina, fecha y sede"></div>
       <div class="wire__send">
-        <button class="slab" id="sendBtn" type="button">Enviar por WhatsApp<span class="slab__tick" aria-hidden="true"></span></button>
-        <span class="wire__note" id="sendNote" role="status">Se abre WhatsApp con el mensaje ya escrito.</span>
+        <button class="slab" id="sendBtn" type="button" data-i18n="bsend">Enviar por WhatsApp<span class="slab__tick" aria-hidden="true"></span></button>
+        <span class="wire__note" id="sendNote" role="status" data-i18n="bnote">Se abre WhatsApp con el mensaje ya escrito.</span>
       </div>
     </div>
 
     <footer class="ends">
-      <span>© 2026 Alan Montojo PH — Fotografía de combate<i class="ends__by">Sitio: VIDANOVA · César Notario</i></span>
+      <span data-i18n="foot">© 2026 Alan Montojo PH — Fotografía de combate<i class="ends__by" data-i18n="by">Sitio: VIDANOVA · César Notario</i></span>
       <nav class="ends__links" aria-label="Enlaces directos">
         <a href="https://wa.me/5491158975177" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="#" rel="noopener">Instagram</a>
+        <a href="#" rel="noopener" data-i18n="ig">Instagram</a>
         <a href="#" rel="noopener">Behance</a>
-        <a href="#top">Volver al inicio</a>
+        <a href="#top" data-i18n="top">Volver al inicio</a>
       </nav>
     </footer>
   </section>
@@ -777,6 +782,37 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
   if (!window.gsap || !window.ScrollTrigger){
     document.body.classList.add('no-gsap');
     wireForm(); wireNav();
+
+  /* ============================================================
+     Dos idiomas. El castellano es el de partida; el inglés
+     sustituye el contenido marcado con data-i18n.
+     ============================================================ */
+  (function bilingue(){
+    var ES = {"skip": "Saltar al contenido", "id": "ALAN MONTOJO <span>PH", "nav1": "Judo", "nav2": "Jiu jitsu", "nav3": "Método", "nav4": "Contratar", "kicker": "Judo · Jiu jitsu · Grappling · MMA · Boxeo", "h1a": "Cuerpo", "h1b": "a <em>cuerpo</em>", "scroll": "Baja para entrar", "ixt": "Qué<br>vas a<br>ver", "ix1": "Judo · secuencia", "ixa": "8 planos", "ix2": "Judo · en el borde", "ixb": "4 fotos", "ix3": "Jiu jitsu", "ixc": "14 fotos", "ix4": "Sobre mí", "ixd": "quién dispara", "ix5": "Servicios", "ixe": "qué se contrata", "ix6": "Método", "ixf": "cómo trabajo", "ix7": "Contratar", "ixg": "fechas abiertas", "a1e": "Competición", "a1t": "Judo", "a1l": "Competición. Luz de pabellón, público, tatami de color. Del saludo al suelo.", "skip2": "Saltar", "breath": "Todo se fotografía tres veces:<br><em>general</em>, <em>medio</em> y <em>detalle</em>.", "g1e": "Judo", "g1t": "En el borde", "g1l": "Lo que pasa cuando nadie está peleando: la espera, el saludo, el agarre que todavía no decidió nada.", "g2e": "Jiu jitsu", "g2t": "Tatami", "g2l": "Gimnasio cerrado, luz dura, cuerpos encimados. Cada pieza muestra la misma acción a dos o tres distancias.", "ce": "Quién dispara", "ct": "Soy Alan<br>Montojo.<br>Fotografío<br>combate.", "c1": "Judo, jiu jitsu, grappling. Competición y tatami.", "c2": "Trabajo desde adentro: descalzo en el borde del área o pegado a la línea, a la altura de los ojos del que pelea. Alto contraste, color saturado, luz dura. Un combate es un hecho cinematográfico y merece revelarse como tal.", "c3": "Una pelea se define en cuatro fotogramas. El resto es ruido. Mi trabajo consiste en llegar antes que el ruido.", "cfig": "Entre rondas. Descanso de dos minutos.", "se": "Servicios", "sn1": "Competición", "sw1": "Torneo o cartelera completa: pesaje, combates, podio. Selección para prensa la misma noche y galería ordenada por categoría.", "sn2": "Entrenamiento", "sw2": "Sesión dentro del tatami o el gimnasio, sin interrumpir la clase. Material listo para redes del club.", "sn3": "Retrato de peleador", "sw3": "Sesión individual para afiche de pelea, ficha de competidor, sponsors y redes. Luz dura, fondo limpio, formatos listos para cada canal.", "sn4": "Contenido para clubes", "sw4": "Acompañamiento: entrenamientos, exámenes de cinturón y competencias, más el material gráfico terminado para publicar. <a href=\"#pieza-a\">Ver un ejemplo", "mt1": "Reconocer el lugar", "mp1": "Llego antes del primer combate. Mido la luz del pabellón, ubico las sombras del techo y elijo dos posiciones fijas y una libre. Nunca improviso el encuadre con el tatami lleno.", "mt2": "Entrar sin molestar", "mp2": "Descalzo en el tatami, o pegado a la línea del área en competición. Siempre a la altura del agarre. Si el fotógrafo se nota, la foto ya se perdió.", "mt3": "Cambiar de plano", "mp3": "Cada acción se fotografía tres veces: general, medio y detalle. Es lo que convierte una serie de fotos en una secuencia que se puede leer, y lo que sostiene la galería de este sitio.", "mt4": "Cerrar la noche", "mp4": "Selección en el lugar y primeras imágenes editadas la misma noche. Las fotos sirven mientras la pelea todavía se comenta; el plazo del resto se acuerda según el evento.", "be": "Contratar", "bt": "Cuéntame qué se pelea y dónde.", "bl1": "Nombre", "bl2": "Evento", "bsend": "Enviar por WhatsApp<span class=\"slab__tick\" aria-hidden=\"true\">", "bnote": "Se abre WhatsApp con el mensaje ya escrito.", "foot": "© 2026 Alan Montojo PH — Fotografía de combate<i class=\"ends__by\" data-i18n=\"by\">Sitio: VIDANOVA · César Notario", "ig": "Instagram", "top": "Volver al inicio", "ph_name": "quién escribe", "ph_card": "disciplina, fecha y sede", "err_name": "Falta tu nombre.", "err_card": "Cuéntame qué evento es y en qué fecha.", "sent": "Mensaje preparado en WhatsApp.", "by": "Sitio: VIDANOVA · César Notario"};
+    var EN = {"id": "ALAN MONTOJO <span>PH</span>", "nav1": "Judo", "nav2": "Jiu jitsu", "nav3": "Method", "nav4": "Book", "kicker": "Judo · Jiu jitsu · Grappling · MMA · Boxing", "h1a": "Up", "h1b": "<em>close</em>", "scroll": "Scroll to enter", "ixt": "What<br>you'll<br>see", "ix1": "Judo · sequence", "ix2": "Judo · at the edge", "ix3": "Jiu jitsu", "ix4": "About", "ix5": "Services", "ix6": "Method", "ix7": "Book", "ixa": "8 frames", "ixb": "4 photos", "ixc": "14 photos", "ixd": "who shoots", "ixe": "what you hire", "ixf": "how I work", "ixg": "open dates", "a1e": "Competition", "a1t": "Judo", "a1l": "Competition. Arena light, a crowd, coloured tatami. From the bow to the ground.", "breath": "Everything is shot three times:<br><em>wide</em>, <em>medium</em> and <em>detail</em>.", "g1e": "Judo", "g1t": "At the edge", "g1l": "What happens when nobody is fighting: the wait, the bow, the grip that hasn't decided anything yet.", "g2e": "Jiu jitsu", "g2t": "Tatami", "g2l": "Closed gym, hard light, bodies stacked. Each piece shows the same action at two or three distances.", "ce": "Who shoots", "ct": "I'm Alan<br>Montojo.<br>I shoot<br>combat.", "c1": "Judo, jiu jitsu, grappling. Competition and tatami.", "c2": "I work from the inside: barefoot at the edge of the area or right on the line, at eye level with the fighter. High contrast, saturated colour, hard light. A fight is a cinematic event and deserves to be graded like one.", "c3": "A fight is decided in four frames. The rest is noise. My job is to get there before the noise.", "cfig": "Between rounds. Two minutes' rest.", "se": "Services", "sn1": "Competition", "sn2": "Training", "sn3": "Fighter portrait", "sn4": "Content for clubs", "sw1": "A full tournament or fight card: weigh-in, bouts, podium. A press selection the same night and a gallery sorted by category.", "sw2": "A session inside the mat or the gym, without interrupting the class. Material ready for the club's channels.", "sw3": "An individual session for fight posters, competitor profiles, sponsors and social. Hard light, clean background, formats ready for each channel.", "sw4": "Ongoing work: training, belt gradings and competitions, plus the finished graphic material to publish. <a href=\"#pieza-a\">See an example</a>.", "mt1": "Scout the room", "mp1": "I arrive before the first bout. I measure the arena light, find the ceiling shadows and pick two fixed positions and one free. I never improvise the framing with a full tatami.", "mt2": "Get in without disturbing", "mp2": "Barefoot on the mat, or tight to the line of the competition area. Always at eye level with the grip. If the photographer shows, the picture is already lost.", "mt3": "Change the frame", "mp3": "Every action is shot three times: wide, medium and detail. That's what turns a set of photos into a sequence you can read, and what holds this site together.", "mt4": "Close the night", "mp4": "Selection on site and the first edited frames the same night. The photos are useful while the fight is still being talked about; the rest is agreed per event.", "be": "Book", "bt": "Tell me what's being fought, and where.", "bl1": "Name", "bl2": "Event", "bsend": "Send on WhatsApp", "bnote": "WhatsApp opens with the message ready.", "foot": "© 2026 Alan Montojo PH — Combat photography", "by": "Site: VIDANOVA · César Notario", "ig": "Instagram", "top": "Back to top", "skip": "Skip to content", "skip2": "Skip", "ph_name": "who's writing", "ph_card": "discipline, date and venue", "err_name": "Your name is missing.", "err_card": "Tell me what event it is and when.", "sent": "Message ready in WhatsApp."};
+    var btn = document.getElementById('lang');
+    var root = document.documentElement;
+    function apply(l){
+      var D = l === 'en' ? EN : ES;
+      document.querySelectorAll('[data-i18n]').forEach(function(el){
+        var v = D[el.getAttribute('data-i18n')];
+        if (v != null) el.innerHTML = v;
+      });
+      var n = document.getElementById('fName'), c = document.getElementById('fCard');
+      if (n) n.placeholder = D.ph_name;
+      if (c) c.placeholder = D.ph_card;
+      root.lang = l;
+      btn.innerHTML = l === 'en' ? 'ES<span>/</span><b>EN</b>' : '<b>ES</b><span>/</span>EN';
+      btn.setAttribute('aria-label', l === 'en' ? 'Cambiar a español' : 'Switch to English');
+      window.I18N = D;
+      try { localStorage.setItem('am_lang', l); } catch (e) {}
+    }
+    window.I18N = ES;
+    var start = 'es';
+    try { start = localStorage.getItem('am_lang') || ((navigator.language || '').slice(0,2) === 'en' ? 'en' : 'es'); } catch (e) {}
+    if (start === 'en') apply('en');
+    btn.addEventListener('click', function(){ apply(root.lang === 'en' ? 'es' : 'en'); });
+  })();
     return;
   }
 
@@ -947,6 +983,30 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
     });
   }
 
+  /* Las piezas de diseño se acercan mientras pasan por delante. */
+  if (!reduced){
+    gsap.utils.toArray('.pbreak img').forEach(function(im){
+      gsap.fromTo(im, { scale:1.16 }, { scale:1, ease:'none',
+        scrollTrigger:{ trigger:im.closest('.pbreak'), start:'top bottom', end:'bottom top', scrub:.7 } });
+    });
+    /* Paralaje por profundidad: cada pieza del collage se mueve según su capa. */
+    gsap.utils.toArray('.comp').forEach(function(c){
+      var parts = gsap.utils.toArray(c.querySelectorAll('.pc, .pw, .pb'));
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      c.addEventListener('mousemove', function(e){
+        var b = c.getBoundingClientRect();
+        var dx = (e.clientX - b.left) / b.width - .5, dy = (e.clientY - b.top) / b.height - .5;
+        parts.forEach(function(p){
+          var z = parseFloat(getComputedStyle(p).zIndex) || 1;
+          gsap.to(p, { x: dx * z * 5, y: dy * z * 3.4, duration:.8, ease:'power2.out', overwrite:'auto' });
+        });
+      });
+      c.addEventListener('mouseleave', function(){
+        gsap.to(parts, { x:0, y:0, duration:.9, ease:'power2.out', overwrite:'auto' });
+      });
+    });
+  }
+
   /* Cada composición entra por partes, con la tipografía adelantándose a las fotos. */
   if (!reduced){
     gsap.utils.toArray('.comp').forEach(function(c){
@@ -981,10 +1041,10 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
       var name = document.getElementById('fName').value.trim();
       var card = document.getElementById('fCard').value.trim();
       note.classList.remove('is-live');
-      if (!name){ note.textContent = 'Falta tu nombre.'; note.classList.add('is-live'); document.getElementById('fName').focus(); return; }
-      if (!card){ note.textContent = 'Cuéntame qué evento es y en qué fecha.'; note.classList.add('is-live'); document.getElementById('fCard').focus(); return; }
+      if (!name){ note.textContent = (window.I18N||{}).err_name || 'Falta tu nombre.'; note.classList.add('is-live'); document.getElementById('fName').focus(); return; }
+      if (!card){ note.textContent = (window.I18N||{}).err_card || 'Cuéntame qué evento es y en qué fecha.'; note.classList.add('is-live'); document.getElementById('fCard').focus(); return; }
       window.open('https://wa.me/5491158975177?text=' + encodeURIComponent('Hola Alan, soy ' + name + '. Consulto por: ' + card), '_blank', 'noopener');
-      note.textContent = 'Mensaje preparado en WhatsApp.';
+      note.textContent = (window.I18N||{}).sent || 'Mensaje preparado en WhatsApp.';
     });
   }
 
