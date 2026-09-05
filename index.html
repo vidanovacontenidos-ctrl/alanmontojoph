@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alan Montojo PH — Fotografía de combate</title>
+<meta name="description" content="Alan Montojo, fotógrafo de combate. Judo, jiu jitsu y grappling: competición y tatami.">
+<meta name="theme-color" content="#0D0D0D">
+<link rel="canonical" href="https://TU-DOMINIO.com/">
+<meta property="og:url" content="https://TU-DOMINIO.com/">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Alan Montojo PH">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alan Montojo PH — Fotografía de combate">
+<meta property="og:description" content="Judo, jiu jitsu y grappling. Competición y tatami.">
+<meta property="og:image" content="./assets/images/hero/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230D0D0D'/%3E%3Cpath d='M0 64 L64 0' stroke='%23B3122F' stroke-width='6'/%3E%3Ctext x='10' y='50' font-family='Impact,sans-serif' font-size='40' fill='%23F2EDE4'%3EAM%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#0D0D0D;
+  --cream:#F2EDE4;
+  --crimson:#B3122F;
+  --crimson-ink:#E8405A;
+  --ash:#8C8C8C;
+  --ember:#FF2A00;
+  --hair:#1F1F1F;
+  --gut:clamp(20px, 5vw, 64px);
+  --display:'Anton','Impact','Haettenschweiler','Arial Narrow Bold',sans-serif;
+  --body:'Space Grotesk', sans-serif;
+  --data:'JetBrains Mono', monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--ink);
+  color:var(--cream);
+  font-family:var(--body);
+  font-weight:300;
+  font-size:clamp(15px,1.05vw,17px);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--crimson);color:var(--cream)}
+:focus-visible{outline:2px solid var(--crimson);outline-offset:4px}
+
+.grain{
+  position:fixed;inset:-150%;z-index:900;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 6s steps(6) infinite;
+}
+@keyframes grain{
+  0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}
+  60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,1%)}100%{transform:translate(0,0)}
+}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.load{position:fixed;top:0;left:0;height:2px;width:0;background:var(--crimson);z-index:1000;transition:width .4s ease,opacity .5s ease}
+.load.is-done{opacity:0}
+
+.skip{position:absolute;left:var(--gut);top:-60px;z-index:1200;background:var(--cream);color:var(--ink);font-family:var(--data);font-size:11px;letter-spacing:.14em;padding:12px 16px;text-transform:uppercase}
+.skip:focus{top:12px}
+
+
+/* header */
+.masthead{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:calc(20px + env(safe-area-inset-top)) var(--gut) 20px;
+  font-family:var(--data);font-size:11px;letter-spacing:.14em;
+  mix-blend-mode:difference;
+}
+.masthead__id span{color:var(--crimson-ink)}
+.masthead__nav{display:flex;gap:clamp(14px,2.4vw,34px)}
+.masthead__nav a{position:relative;padding:12px 0 3px;min-height:44px;display:inline-flex;align-items:flex-end}
+.masthead__nav a::after{
+  content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--cream);
+  transition:width .35s cubic-bezier(.16,1,.3,1);
+}
+.masthead__nav a:hover::after{width:100%}
+@media (max-width:760px){.masthead__nav a:not(.is-key){display:none}}
+
+/* botón */
+.slab{
+  display:inline-flex;align-items:center;gap:14px;
+  border:1px solid var(--hair);padding:15px 24px;
+  font-family:var(--data);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  background:transparent;color:inherit;cursor:pointer;
+  position:relative;overflow:hidden;isolation:isolate;
+}
+.slab::before{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--crimson);
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform .45s cubic-bezier(.76,0,.24,1);
+}
+.slab:hover::before,.slab:focus-visible::before{transform:scaleY(1);transform-origin:top}
+.slab:hover,.slab:focus-visible{border-color:var(--crimson);color:var(--cream)}
+.slab:active{transform:translateY(1px)}
+.slab--wa{color:var(--crimson-ink);border-color:#3A1520}
+.slab--wa:hover,.slab--wa:focus-visible{color:var(--cream)}
+.wa-float{
+  position:fixed;z-index:850;
+  right:calc(18px + env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));
+  width:56px;height:56px;border-radius:50%;background:var(--crimson);color:var(--cream);
+  display:grid;place-items:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.45);
+  transition:transform .35s cubic-bezier(.16,1,.3,1),background .3s;
+}
+.wa-float .wa-ico{width:28px;height:28px;flex:0 0 28px}
+.wa-float:hover,.wa-float:focus-visible{transform:scale(1.08);background:var(--crimson-ink)}
+.wa-float:active{transform:scale(.96)}
+.stage__hud{padding-right:calc(var(--gut) + 70px)}
+.ends{padding-right:80px}
+.wa-ico{width:18px;height:18px;flex:0 0 18px;background:currentColor;-webkit-mask:url("https://cdn.simpleicons.org/whatsapp") center/contain no-repeat;mask:url("https://cdn.simpleicons.org/whatsapp") center/contain no-repeat}
+.slab__tick{width:18px;height:1px;background:currentColor;transition:width .45s cubic-bezier(.76,0,.24,1)}
+.slab:hover .slab__tick{width:32px}
+
+/* hero */
+.hero{
+  min-height:100svh;position:relative;display:grid;grid-template-rows:1fr auto;
+  padding:0 var(--gut) 26px;
+}
+.hero__plate{position:absolute;inset:0;overflow:hidden}
+.hero__plate img{opacity:.42;filter:grayscale(.65) contrast(1.3);transform:scale(1.14)}
+.hero__reveal{
+  position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;
+  --x:50%;--y:50%;--r:0px;
+  -webkit-mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 97%,transparent 100%);
+  mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 97%,transparent 100%);
+}
+.hero__reveal img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);filter:contrast(1.1) saturate(1.05)}
+.hero__plate::after{
+  content:"";position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,rgba(13,13,13,.9) 0%,rgba(13,13,13,.35) 40%,rgba(13,13,13,.97) 100%);
+}
+.hero__body{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(24px,4vh,52px)}
+.hero__kicker{font-family:var(--data);font-size:11px;letter-spacing:.2em;color:var(--crimson-ink);margin-bottom:clamp(16px,3.5vh,36px)}
+.hero h1{
+  font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(54px,19vw,300px);line-height:.79;letter-spacing:-.015em;overflow-wrap:anywhere;
+}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln > span{display:block;will-change:transform}
+.hero h1 .indent{padding-left:clamp(24px,13vw,270px)}
+@media (max-width:420px){.hero h1 .indent{padding-left:0}}
+.hero h1 em{font-style:normal;color:var(--crimson)}
+.hero__meta{
+  display:flex;flex-wrap:wrap;gap:clamp(22px,4vw,72px);
+  align-items:flex-end;justify-content:space-between;
+  padding-top:clamp(22px,4vh,46px);margin-top:clamp(22px,4vh,46px);
+  border-top:1px solid var(--hair);
+}
+.hero__bio{max-width:46ch;color:#C2BCB2}
+.hero__bio strong{font-weight:500;color:var(--cream)}
+.hero__scroll{display:flex;align-items:center;gap:12px;font-family:var(--data);font-size:11px;letter-spacing:.18em;color:var(--ash);white-space:nowrap}
+.hero__rail{width:64px;height:1px;background:var(--hair);overflow:hidden}
+.hero__rail i{display:block;height:100%;width:40%;background:var(--crimson);animation:rail 2.4s cubic-bezier(.76,0,.24,1) infinite}
+@keyframes rail{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}
+
+/* ticker */
+.ticker{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);overflow:hidden;padding:14px 0;display:flex;white-space:nowrap}
+.ticker__run{
+  display:flex;gap:32px;padding-right:32px;flex:0 0 auto;
+  font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(18px,2.6vw,30px);letter-spacing:.01em;
+  animation:run 32s linear infinite;
+}
+.ticker__run b{color:var(--crimson-ink);font-weight:400}
+@keyframes run{to{transform:translateX(-100%)}}
+
+/* índice en papel */
+.index{background:var(--cream);color:var(--ink);padding:clamp(48px,9vh,110px) var(--gut)}
+.index__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(24px,6vw,80px);align-items:start}
+@media (max-width:760px){.index__grid{grid-template-columns:1fr;gap:30px}}
+.index h2{
+  font-family:var(--display);text-transform:uppercase;color:var(--crimson);
+  font-size:clamp(48px,9.5vw,130px);line-height:.82;letter-spacing:-.015em;
+}
+.index__list{display:grid}
+.index__item{
+  display:flex;align-items:baseline;gap:18px;
+  padding:16px 0;border-bottom:1px solid rgba(13,13,13,.18);
+  transition:padding-left .4s cubic-bezier(.16,1,.3,1);
+}
+.index__item:first-child{border-top:1px solid rgba(13,13,13,.18)}
+.index__item:hover{padding-left:12px}
+.index__item span{font-family:var(--data);font-size:11px;color:var(--crimson);letter-spacing:.1em}
+.index__item b{font-family:var(--display);text-transform:uppercase;font-weight:400;font-size:clamp(20px,3vw,32px);letter-spacing:.01em}
+.index__item small{margin-left:auto;font-family:var(--data);font-size:11px;color:#5E5E5E;letter-spacing:.08em}
+
+/* galería */
+.arena{position:relative}
+.stage{height:100svh;position:relative;overflow:hidden;display:grid;grid-template-rows:1fr auto;background:#000}
+.plate{position:absolute;inset:0;opacity:0;will-change:transform,opacity;backface-visibility:hidden;transform:translateZ(0)}
+.plate img{filter:contrast(1.1) saturate(1.04)}
+.plate::after{
+  content:"";position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,rgba(13,13,13,.5) 0%,rgba(13,13,13,.05) 38%,rgba(13,13,13,.88) 100%);
+}
+.flash{position:absolute;inset:0;background:var(--crimson);opacity:0;pointer-events:none;z-index:3;mix-blend-mode:screen}
+.stage__hud{
+  position:relative;z-index:3;align-self:end;transition:transform .6s cubic-bezier(.16,1,.3,1);
+  padding:var(--gut);padding-bottom:clamp(20px,3.5vh,42px);
+  display:grid;gap:clamp(14px,2.6vh,26px);
+}
+.card{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px}
+.stage.hud-right .card{flex-direction:row-reverse}
+.stage.hud-right .card__data{margin:0 auto 0 0;text-align:left}
+.stage.hud-right .card__title{text-align:right;margin-left:auto}
+.stage.hud-big .card__title{font-size:clamp(44px,9vw,132px);max-width:9ch}
+.stage.hud-small .card__title{font-size:clamp(26px,4vw,52px);max-width:20ch}
+.card__title{
+  font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(34px,6.6vw,88px);line-height:.86;letter-spacing:-.015em;max-width:12ch;
+}
+.card__data{font-family:var(--data);font-size:11px;letter-spacing:.06em;color:#B9B3A9;display:grid;gap:5px;text-align:right;margin-left:auto}
+.card__plane{color:var(--crimson-ink)}
+.card__disc{text-transform:uppercase;letter-spacing:.16em;color:var(--cream)}
+.scorebar{display:flex;align-items:center;gap:16px;border-top:1px solid rgba(242,237,228,.16);padding-top:14px}
+.scorebar__round{font-family:var(--data);font-size:11px;letter-spacing:.16em}
+.scorebar__skip{font-family:var(--data);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash);padding:8px 0;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.scorebar__skip:hover{color:var(--cream);border-color:var(--cream)}
+.scorebar__round em{font-style:normal;color:var(--crimson-ink)}
+.scorebar__track{flex:1;height:2px;background:rgba(242,237,228,.14);position:relative}
+.scorebar__fill{position:absolute;inset:0 auto 0 0;width:0%;background:var(--ember)}
+.scorebar__clock{font-family:var(--data);font-size:13px;letter-spacing:.06em;color:var(--cream);font-variant-numeric:tabular-nums;min-width:5ch;text-align:right}
+.scorebar__pips{display:flex;gap:5px}
+.scorebar__pips i{width:12px;height:2px;background:rgba(242,237,228,.22);transition:background .3s}
+.scorebar__pips i.on{background:var(--cream)}
+@media (max-width:600px){.scorebar__pips{display:none}}
+
+/* cabecera de disciplina antes de cada galería */
+.act{padding:clamp(56px,10vh,120px) var(--gut) clamp(28px,5vh,56px);border-top:1px solid var(--hair);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,4vw,60px);align-items:end}
+.act .eyebrow{grid-column:1/-1;margin-bottom:0}
+.act__line{color:#BEB8AE;max-width:44ch;padding-bottom:.4em}
+@media (max-width:760px){.act{grid-template-columns:1fr}}
+
+/* Orientación. Escritorio: la vertical entera a la derecha y el texto ocupando
+   la columna izquierda — no es relleno, es donde vive la ficha del plano.
+   Móvil: todo a pantalla completa. */
+.plate img{position:relative;z-index:1}
+@media (min-aspect-ratio:1/1){
+  .plate.is-v img{
+    position:absolute;top:0;right:0;height:100%;width:auto;aspect-ratio:var(--ar,.6);
+    box-shadow:-1px 0 0 rgba(242,237,228,.2);
+  }
+  .stage.hud-left .card{
+    display:block;
+    width:calc(100% - 100svh * var(--ar-cur,.6) - clamp(24px,4vw,64px));
+    position:absolute;bottom:0;left:0;
+  }
+  .stage.hud-left .card__title{max-width:11ch}
+  .stage.hud-left .card__data{text-align:left;margin:22px 0 0}
+  .stage.hud-left .stage__hud{padding-right:var(--gut)}
+}
+body.no-gsap .plate img{position:relative;top:auto;right:auto;width:100%;height:100%;aspect-ratio:auto}
+
+/* Composiciones autoradas: cada una es distinta. Escalas dispares, superposición,
+   rotación y tipografía conviviendo con la foto. Nada de grilla repetida. */
+.slash-sec{padding:clamp(64px,11vh,130px) 0 clamp(48px,9vh,110px);border-top:1px solid var(--crimson)}
+.slash__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,4vw,60px);
+  align-items:end;margin:0 var(--gut) clamp(24px,4vh,50px)}
+.slash__line{color:#BEB8AE;max-width:46ch;padding-bottom:.4em}
+@media (max-width:760px){.slash__head{grid-template-columns:1fr;gap:14px}}
+
+.comp{position:relative;aspect-ratio:var(--ar,16/9);margin:0 var(--gut) clamp(40px,7vh,90px)}
+.comp::before{
+  content:attr(data-label);position:absolute;right:0;top:-22px;
+  font-family:var(--data);font-size:11px;letter-spacing:.2em;color:#4A4A4A;
+}
+.pc{position:absolute;margin:0;overflow:hidden;background:#0A0A0A;transform:rotate(var(--rot,0deg));
+  box-shadow:0 24px 60px rgba(0,0,0,.55)}
+.pc img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95);
+  transition:transform .8s cubic-bezier(.16,1,.3,1),filter .5s}
+.pc:hover img{transform:scale(1.05);filter:saturate(1.08)}
+.pc figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:11px 13px;
+  font-family:var(--data);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--cream);
+  background:linear-gradient(0deg,rgba(10,10,10,.93),transparent);opacity:0;transition:opacity .35s;
+}
+.pc:hover figcaption,.pc:focus-within figcaption{opacity:1}
+.pc figcaption span{color:var(--crimson-ink);margin-right:9px}
+.pc.is-pair{outline:1px solid rgba(179,18,47,.65);outline-offset:-1px}
+
+/* tipografía que convive con la foto: contorneada por detrás, sólida cuando corta */
+.pw{
+  position:absolute;font-family:var(--display);text-transform:uppercase;line-height:.82;
+  letter-spacing:-.01em;white-space:nowrap;pointer-events:none;
+  color:transparent;-webkit-text-stroke:1px rgba(179,18,47,.85);
+  transform:rotate(var(--rot,0deg));
+}
+.pw.is-fill{color:var(--cream);-webkit-text-stroke:0;mix-blend-mode:difference}
+.pb{position:absolute;background:var(--crimson);transform:rotate(var(--rot,0deg));pointer-events:none}
+
+/* en pantallas chicas el collage se desarma en flujo, sin superposición */
+@media (max-width:760px){
+  .comp{aspect-ratio:auto;display:flex;flex-direction:column;gap:10px;margin:0 var(--gut) clamp(36px,6vh,70px)}
+  .comp::before{position:static;display:block;margin-bottom:10px;text-align:right}
+  .pc{position:static;width:100% !important;transform:none;box-shadow:none}
+  .pc figcaption{opacity:1}
+  .pw{position:static;font-size:13vw !important;white-space:normal;transform:none;display:block;margin:6px 0}
+  .pb{display:none}
+}
+
+/* respiro entre la secuencia y las composiciones */
+.breath{padding:clamp(70px,14vh,170px) var(--gut);border-top:1px solid var(--hair);display:grid;place-items:center;text-align:center}
+.breath__line{font-family:var(--display);text-transform:uppercase;line-height:.92;letter-spacing:-.01em;
+  font-size:clamp(26px,4.6vw,68px);max-width:20ch;color:#5A554F}
+.breath__line em{font-style:normal;color:var(--cream)}
+
+/* secciones *//* secciones *//* secciones *//* secciones */
+.band{padding:clamp(72px,13vh,150px) var(--gut);border-top:1px solid var(--hair)}
+.eyebrow{font-family:var(--data);font-size:11px;letter-spacing:.2em;color:var(--crimson-ink);margin-bottom:24px}
+.head{font-family:var(--display);text-transform:uppercase;font-size:clamp(44px,8.5vw,120px);line-height:.85;letter-spacing:-.015em}
+.creed{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(30px,6vw,90px);align-items:start}
+@media (max-width:860px){.creed{grid-template-columns:1fr}}
+.creed__text p{max-width:62ch;color:#BEB8AE;margin-top:22px}
+.creed__text p:first-of-type{font-size:clamp(18px,2.1vw,24px);line-height:1.5;color:var(--cream);font-weight:400}
+.creed__portrait{position:relative;aspect-ratio:4/5;overflow:hidden}
+.creed__portrait figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:14px 16px;
+  background:linear-gradient(0deg,rgba(13,13,13,.94),transparent);
+  font-family:var(--data);font-size:11px;letter-spacing:.12em;color:#BDB7AD;
+}
+
+.kit{margin-top:clamp(46px,8vh,90px)}
+.kit__row{
+  display:grid;grid-template-columns:minmax(110px,.45fr) minmax(0,1.5fr) minmax(0,1fr);
+  gap:20px;padding:20px 0;border-bottom:1px solid var(--hair);align-items:baseline;
+  transition:padding-left .4s cubic-bezier(.16,1,.3,1),border-color .4s;
+}
+.kit__row:hover{padding-left:14px;border-color:var(--crimson)}
+.kit__slot{font-family:var(--data);font-size:11px;letter-spacing:.14em;color:var(--ash)}
+.kit__name{font-family:var(--display);text-transform:uppercase;font-size:clamp(18px,2.3vw,26px);letter-spacing:.01em}
+.kit__why{color:#A5A099;font-size:.92em}
+@media (max-width:760px){.kit__row{grid-template-columns:1fr;gap:6px}}
+
+.rounds{counter-reset:r;margin-top:clamp(46px,8vh,90px)}
+.rounds__step{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,1fr);gap:clamp(16px,4vw,60px);padding:28px 0;border-top:1px solid var(--hair)}
+.rounds__step:last-child{border-bottom:1px solid var(--hair)}
+.rounds__step h3{font-family:var(--display);text-transform:uppercase;font-size:clamp(22px,3vw,36px);letter-spacing:.005em}
+.rounds__step h3::before{
+  counter-increment:r;content:counter(r,decimal-leading-zero);
+  font-family:var(--data);font-size:11px;color:var(--crimson-ink);display:block;letter-spacing:.16em;margin-bottom:10px;
+}
+.rounds__step p{color:#A9A49C;max-width:58ch}
+@media (max-width:760px){.rounds__step{grid-template-columns:1fr;gap:10px}}
+
+
+/* contacto */
+.booking{padding:clamp(72px,13vh,150px) var(--gut) 0;border-top:1px solid var(--hair)}
+.booking .head{max-width:15ch}
+.wire{margin-top:clamp(40px,7vh,80px);max-width:900px}
+.wire__line{display:flex;align-items:flex-end;gap:18px;border-bottom:1px solid var(--hair);padding-bottom:12px;flex-wrap:wrap}
+.wire__line + .wire__line{margin-top:32px}
+.wire label{font-family:var(--data);font-size:11px;letter-spacing:.16em;color:var(--ash);flex:0 0 auto;padding-bottom:6px}
+.wire input{
+  flex:1;min-width:180px;background:transparent;border:none;color:var(--cream);
+  font-family:var(--display);font-size:clamp(24px,4vw,46px);letter-spacing:.005em;
+  text-transform:uppercase;padding:0 0 2px;
+}
+.wire input::placeholder{color:#7F7A73;text-transform:none;font-family:var(--body);font-size:.42em;letter-spacing:.04em}
+.wire input:focus{outline:none}
+.wire__line:focus-within{border-color:var(--crimson)}
+.wire__send{margin-top:36px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.wire__note{font-family:var(--data);font-size:11px;letter-spacing:.1em;color:var(--ash)}
+.wire__note.is-live{color:var(--crimson-ink)}
+
+.ends{
+  margin-top:clamp(70px,12vh,140px);border-top:1px solid var(--hair);
+  padding:24px 0 30px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;
+  font-family:var(--data);font-size:11px;letter-spacing:.14em;color:var(--ash);
+}
+.ends__links{display:flex;flex-wrap:wrap;gap:22px}
+.ends__links a{position:relative;color:var(--cream);display:inline-block;padding:10px 0}
+.ends__links a::after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:100%;background:var(--hair);transition:background .3s}
+.ends__links a:hover::after{background:var(--crimson)}
+
+
+/* ---------- ornamentos: malla de jaula y grilla de tatami ---------- */
+:root{
+  --mesh:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Cg fill='none' stroke='%23F2EDE4' stroke-width='1.1'%3E%3Cpath d='M-4 4 L4 -4 M0 36 L36 0 M32 40 L40 32'/%3E%3Cpath d='M-4 32 L4 40 M0 0 L36 36 M32 -4 L40 4'/%3E%3C/g%3E%3C/svg%3E");
+  --tatami:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%23F2EDE4' stroke-width='1'%3E%3Crect x='.5' y='.5' width='79' height='39'/%3E%3Crect x='80.5' y='.5' width='79' height='39'/%3E%3Crect x='.5' y='40.5' width='39' height='79'/%3E%3Crect x='40.5' y='40.5' width='79' height='39'/%3E%3Crect x='40.5' y='80.5' width='79' height='39'/%3E%3Crect x='120.5' y='40.5' width='39' height='79'/%3E%3Crect x='.5' y='120.5' width='79' height='39'/%3E%3Crect x='80.5' y='120.5' width='79' height='39'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* franja de malla: marca la entrada a la jaula */
+.mesh-rule{
+  height:64px;border-bottom:1px solid var(--hair);
+  background-image:var(--mesh);background-size:36px 36px;
+  opacity:.16;
+}
+
+/* esquinas de área de combate sobre el retrato */
+.marked{position:relative}
+.marked::before,.marked::after{
+  content:"";position:absolute;width:34px;height:34px;pointer-events:none;z-index:2;
+  border:2px solid var(--crimson);
+}
+.marked::before{top:14px;left:14px;border-right:0;border-bottom:0}
+.marked::after{bottom:14px;right:14px;border-left:0;border-top:0}
+
+/* grilla de tatami detrás de los números */
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:var(--tatami);background-size:160px 160px;opacity:.07;
+}
+
+/* reveal + fallback */
+.rise{opacity:0;transform:translateY(24px)}
+body.no-motion .rise,body.no-gsap .rise{opacity:1;transform:none}
+body.no-gsap .stage{height:auto;position:static;display:block}
+body.no-gsap .plate{position:relative;opacity:1;aspect-ratio:3/4}
+body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="load" id="load" aria-hidden="true"></div>
+
+<a class="skip" href="#arena-judo">Saltar al contenido</a>
+
+<a class="wa-float" href="https://wa.me/5491158975177?text=Hola%20Alan%2C%20quiero%20consultar%20por%20una%20cobertura" target="_blank" rel="noopener" aria-label="Escribir a Alan por WhatsApp"><span class="wa-ico" aria-hidden="true"></span></a>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="masthead">
+  <a class="masthead__id" href="#top">ALAN MONTOJO <span>PH</span></a>
+  <nav class="masthead__nav" aria-label="Principal">
+    <a href="#arena-judo">Judo</a>
+    <a href="#grid-bjj">Jiu jitsu</a>
+    <a href="#metodo">Método</a>
+    <a href="#booking" class="is-key">Contratar</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero__plate" aria-hidden="true"><img data-shot="hero" alt=""><div class="hero__reveal" id="heroReveal"><img data-shot="hero" alt=""></div></div>
+    <div class="hero__body">
+      <p class="hero__kicker">Judo · Jiu jitsu · Grappling · MMA · Boxeo</p>
+      <h1>
+        <span class="ln"><span>Cuerpo</span></span>
+        <span class="ln indent"><span>a <em>cuerpo</em></span></span>
+      </h1>
+      <div class="hero__meta">
+        <p class="hero__bio">
+          <strong>Alan Montojo</strong> fotografía peleas desde adentro del tatami.
+          Entrenamientos, carteleras y esquina: el segundo exacto en que un cuerpo
+          decide seguir o rendirse.
+        </p>
+        <p class="hero__scroll"><span class="hero__rail"><i></i></span> Bajá para entrar</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__run"><span>Judo</span><b>—</b><span>Jiu jitsu</span><b>—</b><span>Grappling</span><b>—</b><span>MMA</span><b>—</b><span>Boxeo</span><b>—</b></div>
+    <div class="ticker__run"><span>Judo</span><b>—</b><span>Jiu jitsu</span><b>—</b><span>Grappling</span><b>—</b><span>MMA</span><b>—</b><span>Boxeo</span><b>—</b></div>
+  </div>
+
+  <div class="mesh-rule" aria-hidden="true"></div>
+
+  <section class="index" aria-label="Índice">
+    <div class="index__grid">
+      <h2>Qué<br>vas a<br>ver</h2>
+      <div class="index__list">
+        <a class="index__item" href="#arena-judo"><span>01</span><b>Judo · secuencia</b><small>8 planos</small></a>
+        <a class="index__item" href="#grid-judo"><span>02</span><b>Judo · en el borde</b><small>4 fotos</small></a>
+        <a class="index__item" href="#grid-bjj"><span>03</span><b>Jiu jitsu</b><small>14 fotos</small></a>
+        <a class="index__item" href="#creed"><span>04</span><b>Sobre mí</b><small>quién dispara</small></a>
+        <a class="index__item" href="#servicios"><span>05</span><b>Servicios</b><small>qué se contrata</small></a>
+        <a class="index__item" href="#metodo"><span>06</span><b>Método</b><small>cómo trabajo</small></a>
+        <a class="index__item" href="#booking"><span>07</span><b>Contratar</b><small>fechas abiertas</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="act">
+    <p class="eyebrow">Competición</p>
+    <h2 class="head">Judo</h2>
+    <p class="act__line">Competición. Luz de pabellón, público, tatami de color. Del saludo al suelo.</p>
+  </section>
+  <section class="arena" id="arena-judo" data-clock="240" aria-label="Galería de Judo" data-skip="acto-2">
+    <h2 class="sr-only">Judo</h2>
+    <div class="stage">
+      <div class="plate is-h"><img data-shot="1" alt="Judoka solo haciendo la reverencia al entrar al tatami"></div>
+      <div class="plate is-h"><img data-shot="3" alt="Un entrenador acomoda el judogi de un chico antes de salir"></div>
+      <div class="plate is-h"><img data-shot="5" alt="Dos competidores de cinturón marrón peleando el agarre"></div>
+      <div class="plate is-h"><img data-shot="8" alt="Proyección en curso: uno levanta al otro sobre la cadera"></div>
+      <div class="plate is-h"><img data-shot="9" alt="Control lateral en el suelo sobre el tatami verde"></div>
+      <div class="plate is-h"><img data-shot="10" alt="Judoka arrodillado sobre su rival, controlando"></div>
+      <div class="plate is-h"><img data-shot="11" alt="Judoka en cuclillas con las manos en la cara tras perder"></div>
+      <div class="plate is-h"><img data-shot="12" alt="Los dos competidores se abrazan al terminar el combate"></div>
+      <div class="flash" aria-hidden="true"></div>
+      <div class="stage__hud">
+        <div class="card">
+          <p class="card__title"></p>
+          <div class="card__data">
+            <span class="card__disc">Judo</span>
+            <span class="card__plane"></span>
+          </div>
+        </div>
+        <div class="scorebar">
+          <span class="scorebar__round">PLANO <em>01</em> / 08</span>
+          <a class="scorebar__skip" href="#acto-2">Saltar</a>
+          <span class="scorebar__track"><i class="scorebar__fill"></i></span>
+          <span class="scorebar__clock">4:00</span>
+          <span class="scorebar__pips" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="acto-2"></div>
+
+  <section class="breath" aria-hidden="true">
+    <p class="breath__line">Todo se fotografía tres veces:<br><em>general</em>, <em>medio</em> y <em>detalle</em>.</p>
+  </section>
+
+  <section class="slash-sec" id="grid-judo" aria-label="En el borde">
+    <div class="slash__head">
+      <p class="eyebrow rise">Judo</p>
+      <h2 class="head rise">En el borde</h2>
+      <p class="slash__line rise">Lo que pasa cuando nadie está peleando: la espera, el saludo, el agarre que todavía no decidió nada.</p>
+    </div>
+      <div class="comp" style="--ar:16/9" data-label="Judo · verticales">
+        <span class="pw" aria-hidden="true" style="left:2%;top:60%;font-size:8vw;z-index:0;--rot:0deg">EN EL</span>
+        <span class="pw is-fill" aria-hidden="true" style="left:2%;top:76%;font-size:8vw;z-index:0;--rot:0deg">BORDE</span>
+        <span class="pb" aria-hidden="true" style="left:37%;top:8%;width:2.5%;height:70%;z-index:1;--rot:0deg"></span>
+        <figure class="pc" style="left:2%;top:6%;width:15%;aspect-ratio:0.563;z-index:3;--rot:-2deg"><img data-shot="2" alt="Judoka de cinturón marrón esperando de pie al borde del tatami" loading="lazy"><figcaption><span>02</span>El que espera</figcaption></figure>
+        <figure class="pc" style="left:21%;top:34%;width:13%;aspect-ratio:0.563;z-index:4;--rot:1deg"><img data-shot="4" alt="Judoka de azul saludando con la cabeza baja" loading="lazy"><figcaption><span>04</span>El saludo</figcaption></figure>
+        <figure class="pc is-pair" style="left:42%;top:2%;width:21%;aspect-ratio:0.563;z-index:5;--rot:0deg"><img data-shot="6" alt="Los dos judokas pegados cuerpo a cuerpo" loading="lazy"><figcaption><span>06</span>Cuerpo a cuerpo</figcaption></figure>
+        <figure class="pc is-pair" style="left:63%;top:30%;width:20%;aspect-ratio:0.563;z-index:6;--rot:2deg"><img data-shot="7" alt="El mismo agarre desde más cerca" loading="lazy"><figcaption><span>07</span>El empuje</figcaption></figure>
+        <span class="pw" aria-hidden="true" style="left:85%;top:82%;font-size:2.4vw;z-index:7;--rot:0deg">06·07</span>
+      </div>
+  </section>
+
+  <section class="slash-sec" id="grid-bjj" aria-label="Tatami">
+    <div class="slash__head">
+      <p class="eyebrow rise">Jiu jitsu</p>
+      <h2 class="head rise">Tatami</h2>
+      <p class="slash__line rise">Gimnasio cerrado, luz dura, cuerpos encimados. Cada pieza muestra la misma acción a dos o tres distancias.</p>
+    </div>
+      <div class="comp" style="--ar:16/9" data-label="01">
+        <span class="pw" aria-hidden="true" style="left:58%;top:10%;font-size:9vw;z-index:1;--rot:0deg">DETALLE</span>
+        <span class="pw is-fill" aria-hidden="true" style="left:58%;top:30%;font-size:2.2vw;z-index:1;--rot:0deg">ANTES DE LA LLAVE</span>
+        <figure class="pc" style="left:3%;top:8%;width:26%;aspect-ratio:0.800;z-index:3;--rot:-1deg"><img data-shot="13" alt="Antebrazos tatuados y manos entrelazadas" loading="lazy"><figcaption><span>13</span>Antebrazos</figcaption></figure>
+        <figure class="pc" style="left:34%;top:40%;width:22%;aspect-ratio:0.800;z-index:5;--rot:2deg"><img data-shot="21" alt="Manos controlando un brazo durante una llave" loading="lazy"><figcaption><span>21</span>El brazo</figcaption></figure>
+        <span class="pb" aria-hidden="true" style="left:60%;top:62%;width:30%;height:2.5%;z-index:2;--rot:-2deg"></span>
+      </div>
+      <div class="comp" style="--ar:16/10" data-label="02">
+        <figure class="pc is-pair" style="left:24%;top:4%;width:70%;aspect-ratio:1.777;z-index:2;--rot:0deg"><img data-shot="14" alt="Derribo visto desde lejos, con el gimnasio de fondo" loading="lazy"><figcaption><span>14</span>La clase entera</figcaption></figure>
+        <span class="pw is-fill" aria-hidden="true" style="left:2%;top:78%;font-size:7vw;z-index:1;--rot:0deg">EL DERRIBO</span>
+        <figure class="pc is-pair" style="left:2%;top:30%;width:22%;aspect-ratio:0.800;z-index:5;--rot:-2deg"><img data-shot="15" alt="El mismo derribo desde más cerca" loading="lazy"><figcaption><span>15</span>El derribo</figcaption></figure>
+        <figure class="pc" style="left:70%;top:44%;width:18%;aspect-ratio:0.667;z-index:6;--rot:3deg"><img data-shot="22" alt="Derribo con rashguard verde sobre el compañero" loading="lazy"><figcaption><span>22</span>El levante</figcaption></figure>
+        <span class="pb" aria-hidden="true" style="left:2%;top:12%;width:2.5%;height:14%;z-index:1;--rot:0deg"></span>
+      </div>
+      <div class="comp" style="--ar:16/9" data-label="03">
+        <span class="pw" aria-hidden="true" style="left:3%;top:70%;font-size:9vw;z-index:1;--rot:0deg">SUMISIÓN</span>
+        <figure class="pc is-pair" style="left:3%;top:10%;width:24%;aspect-ratio:0.800;z-index:4;--rot:-2deg"><img data-shot="16" alt="Proyección con rashguard rosa contra la pared" loading="lazy"><figcaption><span>16</span>Proyección</figcaption></figure>
+        <figure class="pc is-pair" style="left:25%;top:36%;width:20%;aspect-ratio:0.800;z-index:5;--rot:1deg"><img data-shot="17" alt="La misma proyección en plano cerrado" loading="lazy"><figcaption><span>17</span>El agarre</figcaption></figure>
+        <figure class="pc" style="left:50%;top:6%;width:17%;aspect-ratio:0.667;z-index:3;--rot:0deg"><img data-shot="23" alt="Triángulo desde la guardia" loading="lazy"><figcaption><span>23</span>El triángulo</figcaption></figure>
+        <figure class="pc" style="left:69%;top:38%;width:19%;aspect-ratio:0.667;z-index:4;--rot:-3deg"><img data-shot="24" alt="Llave de brazo con rashguard amarillo" loading="lazy"><figcaption><span>24</span>La palanca</figcaption></figure>
+        <span class="pb" aria-hidden="true" style="left:50%;top:80%;width:38%;height:2.5%;z-index:6;--rot:0deg"></span>
+      </div>
+      <div class="comp" style="--ar:16/9" data-label="04">
+        <figure class="pc" style="left:26%;top:3%;width:62%;aspect-ratio:1.500;z-index:2;--rot:0deg"><img data-shot="25" alt="Control desde la guardia sobre el tatami gris" loading="lazy"><figcaption><span>25</span>La guardia</figcaption></figure>
+        <figure class="pc is-pair" style="left:2%;top:32%;width:22%;aspect-ratio:0.750;z-index:4;--rot:-2deg"><img data-shot="18" alt="Dos compañeros en control de espalda mirando a cámara" loading="lazy"><figcaption><span>18</span>Control de espalda</figcaption></figure>
+        <figure class="pc is-pair" style="left:23%;top:50%;width:18%;aspect-ratio:0.750;z-index:5;--rot:2deg"><img data-shot="19" alt="El mismo control desde más cerca" loading="lazy"><figcaption><span>19</span>Dos caras</figcaption></figure>
+        <figure class="pc is-pair" style="left:42%;top:62%;width:15%;aspect-ratio:0.750;z-index:6;--rot:-1deg"><img data-shot="20" alt="Primerísimo plano de las caras y el agarre" loading="lazy"><figcaption><span>20</span>Sin salida</figcaption></figure>
+        <span class="pw is-fill" aria-hidden="true" style="left:62%;top:58%;font-size:7vw;z-index:3;--rot:0deg">TRES</span>
+        <span class="pw is-fill" aria-hidden="true" style="left:62%;top:74%;font-size:7vw;z-index:3;--rot:0deg">PASOS</span>
+      </div>
+      <div class="comp" style="--ar:3/2" data-label="05">
+        <figure class="pc" style="left:0%;top:0%;width:100%;aspect-ratio:1.500;z-index:1;--rot:0deg"><img data-shot="26" alt="Tres compañeros sentados en el tatami riéndose al terminar" loading="lazy"><figcaption><span>26</span>Después</figcaption></figure>
+        <span class="pw" aria-hidden="true" style="left:4%;top:74%;font-size:11vw;z-index:3;--rot:0deg">DESPUÉS</span>
+      </div>
+  </section>
+
+  <section class="band" id="creed">
+    <p class="eyebrow rise">Quién dispara</p>
+    <div class="creed">
+      <div class="creed__text">
+        <h2 class="head rise">Soy Alan<br>Montojo.<br>Fotografío<br>combate.</h2>
+        <p class="rise">Judo, jiu jitsu, grappling. Competición y tatami.</p>
+        <p class="rise">Trabajo desde adentro: descalzo en el borde del área o pegado a la línea, a la altura de los ojos del que pelea. Alto contraste, color saturado, luz dura. Un combate es un hecho cinematográfico y merece revelarse como tal.</p>
+        <p class="rise">Una pelea se define en cuatro fotogramas. El resto es ruido. Mi trabajo consiste en llegar antes que el ruido.</p>
+      </div>
+      <figure class="creed__portrait marked rise">
+        <img data-shot="retrato" alt="Peleador sentado en el borde del tatami, transpirado, entre series">
+        <figcaption>Entre rondas. Descanso de dos minutos.</span>
+      </figure>
+    </div>
+
+    <div class="kit" id="servicios">
+      <p class="eyebrow rise" style="margin-top:clamp(46px,8vh,90px)">Servicios</p>
+      <div class="kit__row rise"><span class="kit__slot">01</span><span class="kit__name">Competición</span><span class="kit__why">Torneo o cartelera completa: pesaje, combates, podio. Selección para prensa la misma noche y galería ordenada por categoría.</span></div>
+      <div class="kit__row rise"><span class="kit__slot">02</span><span class="kit__name">Entrenamiento</span><span class="kit__why">Sesión dentro del tatami o el gimnasio, sin interrumpir la clase. Material listo para redes del club.</span></div>
+      <div class="kit__row rise"><span class="kit__slot">03</span><span class="kit__name">Retrato de peleador</span><span class="kit__why">Sesión individual para afiche de pelea, ficha de competidor, sponsors y redes. Luz dura, fondo limpio, formatos listos para cada canal.</span></div>
+      <div class="kit__row rise"><span class="kit__slot">04</span><span class="kit__name">Contenido para clubes</span><span class="kit__why">Acompañamiento mensual: entrenamientos, exámenes de cinturón y competencias, con calendario de entrega.</span></div>
+    </div>
+
+    <div class="rounds" id="metodo">
+      <article class="rounds__step rise"><h3>Reconocer el lugar</h3><p>Llego antes del primer combate. Mido la luz del pabellón, ubico las sombras del techo y elijo dos posiciones fijas y una libre. Nunca improviso el encuadre con el tatami lleno.</p></article>
+      <article class="rounds__step rise"><h3>Entrar sin molestar</h3><p>Descalzo en el tatami, o pegado a la línea del área en competición. Siempre a la altura del agarre. Si el fotógrafo se nota, la foto ya se perdió.</p></article>
+      <article class="rounds__step rise"><h3>Cambiar de plano</h3><p>Cada acción se fotografía tres veces: general, medio y detalle. Es lo que convierte una serie de fotos en una secuencia que se puede leer, y lo que sostiene la galería de este sitio.</p></article>
+      <article class="rounds__step rise"><h3>Cerrar la noche</h3><p>Selección en el lugar y primeras imágenes editadas la misma noche. Las fotos sirven mientras la pelea todavía se comenta; el plazo del resto se acuerda según el evento.</p></article>
+    </div>
+
+  </section>
+
+  <section class="booking" id="booking">
+    <p class="eyebrow rise">Contratar</p>
+    <h2 class="head rise">Contame qué se pelea y dónde.</h2>
+
+    <div class="wire">
+      <div class="wire__line"><label for="fName">Nombre</label><input id="fName" name="nombre" type="text" placeholder="quién escribe" autocomplete="name"></div>
+      <div class="wire__line"><label for="fCard">Evento</label><input id="fCard" name="evento" type="text" placeholder="disciplina, fecha y sede"></div>
+      <div class="wire__send">
+        <button class="slab" id="sendBtn" type="button">Enviar por WhatsApp<span class="slab__tick" aria-hidden="true"></span></button>
+        <a class="slab slab--wa" href="https://wa.me/5491158975177?text=Hola%20Alan%2C%20quiero%20consultar%20por%20una%20cobertura" target="_blank" rel="noopener"><span class="wa-ico" aria-hidden="true"></span>WhatsApp &nbsp;+54 9 11 5897-5177</a>
+        <span class="wire__note" id="sendNote" role="status">Se abre WhatsApp con el mensaje ya escrito.</span>
+      </div>
+    </div>
+
+    <footer class="ends">
+      <span>© 2026 Alan Montojo PH — Fotografía de combate</span>
+      <nav class="ends__links" aria-label="Enlaces directos">
+        <a href="https://wa.me/5491158975177" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#" rel="noopener">Instagram</a>
+        <a href="#" rel="noopener">Behance</a>
+        <a href="#top">Volver al inicio</a>
+      </nav>
+    </footer>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  /* ============================================================
+     FICHAS DE LA GALERÍA
+     tr: 'push' = la cámara avanza sobre la misma acción (zoom continuo)
+         'cut'  = corte seco a otra acción, con destello
+     ============================================================ */
+  var SRC = {
+    hero:    './assets/images/hero/hero.jpg',
+    retrato: './assets/images/about/retrato.jpg'
+  };
+  for (var s = 1; s <= 26; s++) SRC[s] = './assets/images/gallery/photo-' + (s < 10 ? '0' : '') + s + '.jpg';
+
+  /* tr     'push' = acercamiento continuo sobre la misma acción · 'cut' = corte a otra acción
+     match  cuánto tiene que crecer la foto ANTERIOR para que su encuadre coincida con esta.
+            Subilo si el salto se nota; bajalo si la anterior se pixela antes del cambio.
+     origin  hacia dónde converge el zoom: donde está el sujeto dentro del cuadro. */
+  var GALLERIES = [
+    { el:'#arena-judo', cards:[
+      { t:'El pabellón vacío',   plane:'Plano general',  tr:'cut', origin:'48% 55%' },
+      { t:'Ajustar el gi',       plane:'Plano medio',    tr:'cut', origin:'48% 48%' },
+      { t:'Kumi kata',           plane:'Plano medio',    tr:'cut', origin:'50% 42%' },
+      { t:'La proyección',       plane:'Plano medio',    tr:'cut', origin:'52% 48%' },
+      { t:'Inmovilización',      plane:'Plano general',  tr:'cut', origin:'50% 58%' },
+      { t:'El control',          plane:'Plano medio',    tr:'cut', origin:'48% 48%' },
+      { t:'La derrota',          plane:'Plano general',  tr:'cut', origin:'50% 50%' },
+      { t:'El respeto',          plane:'Plano medio',    tr:'cut', origin:'50% 45%' }
+    ]}
+  ];
+
+  /* cuánto respira una foto cuando después viene un corte, no un acercamiento */
+  var DRIFT = 1.09;
+
+  function stand(i){
+    return "data:image/svg+xml;charset=utf-8," +
+      "<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1500'>" +
+      "<rect width='1200' height='1500' fill='%23121212'/>" +
+      "<path d='M0 1500 L1200 0' stroke='%23B3122F' stroke-width='2' opacity='.5'/>" +
+      "<text x='70' y='1420' fill='%23F2EDE4' font-family='monospace' font-size='30' opacity='.5'>FALTA " + i + "</text></svg>";
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('img[data-shot]'), function(img){
+    var k = img.getAttribute('data-shot');
+    img.addEventListener('error', function(){
+      if (img.dataset.fallen) return;
+      img.dataset.fallen = '1';
+      img.src = stand(k);
+    });
+    img.loading = (k === 'hero' || k === '1' || k === '2') ? 'eager' : 'lazy';
+    img.decoding = 'async';
+    var pl = img.closest('.plate');
+    if (pl){
+      pl.style.setProperty('--src', 'url("' + (SRC[k] || '') + '")');
+      img.addEventListener('load', function(){
+        if (img.naturalWidth) pl.style.setProperty('--ar', (img.naturalWidth / img.naturalHeight).toFixed(3));
+      });
+    }
+    img.src = SRC[k] || '';
+  });
+
+  /* ============================================================
+     PRELOADER
+     ============================================================ */
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var n = 0;
+
+  /* Carga no bloqueante: el hero ya está en pantalla, la barra sólo informa. */
+  var bar = document.getElementById('load');
+  var critical = ['hero','1','2','3'].map(function(k){ return document.querySelector('img[data-shot="' + k + '"]'); });
+  var loaded = 0;
+  function bump(){
+    loaded++;
+    bar.style.width = Math.round(loaded / critical.length * 100) + '%';
+    if (loaded >= critical.length) setTimeout(function(){ bar.classList.add('is-done'); }, 300);
+  }
+  critical.forEach(function(img){
+    if (!img) { bump(); return; }
+    if (img.complete && img.naturalWidth) bump();
+    else { img.addEventListener('load', bump); img.addEventListener('error', bump); }
+  });
+  setTimeout(function(){ bar.classList.add('is-done'); }, 4000);
+
+  function openPage(){
+    if (window.gsap && !reduced){
+      gsap.to('.hero h1 .ln > span', { yPercent:0, duration:1.15, ease:'expo.out', stagger:.09 });
+      gsap.to('.hero__kicker, .hero__meta', { opacity:1, y:0, duration:.9, ease:'power3.out', delay:.3, stagger:.08 });
+    }
+  }
+
+  if (!window.gsap || !window.ScrollTrigger){
+    document.body.classList.add('no-gsap');
+    wireForm(); wireNav();
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+  openPage();
+  ScrollTrigger.config({ ignoreMobileResize:true });
+  if (reduced) document.body.classList.add('no-motion');
+
+  gsap.set('.hero h1 .ln > span', { yPercent: reduced ? 0 : 118 });
+  gsap.set('.hero__kicker, .hero__meta', { opacity: reduced ? 1 : 0, y: reduced ? 0 : 20 });
+
+  /* ============================================================
+     PORTADA: un círculo sigue al cursor y deja ver la foto sin oscurecer.
+     Máscara CSS, sin canvas: sólo se actualizan tres variables por cuadro.
+     ============================================================ */
+  (function heroLens(){
+    var lens = document.getElementById('heroReveal');
+    var hero = document.querySelector('.hero');
+    if (!lens || reduced || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    var R = 150;
+    var x = 0, y = 0, tx = 0, ty = 0, r = 0, tr = 0, raf = 0, ready = false;
+
+    function frame(){
+      raf = 0;
+      x += (tx - x) * .22;
+      y += (ty - y) * .22;
+      r += (tr - r) * (tr ? .16 : .09);
+      lens.style.setProperty('--x', x.toFixed(1) + 'px');
+      lens.style.setProperty('--y', y.toFixed(1) + 'px');
+      lens.style.setProperty('--r', r.toFixed(1) + 'px');
+      if (Math.abs(tx - x) > .4 || Math.abs(ty - y) > .4 || Math.abs(tr - r) > .4) kick();
+    }
+    function kick(){ if (!raf) raf = requestAnimationFrame(frame); }
+
+    hero.addEventListener('mousemove', function(e){
+      var b = lens.getBoundingClientRect();
+      tx = e.clientX - b.left; ty = e.clientY - b.top;
+      if (!ready){ x = tx; y = ty; ready = true; }
+      tr = R; kick();
+    });
+    hero.addEventListener('mouseleave', function(){ tr = 0; kick(); });
+  })();
+
+  /* HERO */
+  if (!reduced){
+    gsap.to('.hero__plate img', { yPercent:12, scale:1.24, ease:'none',
+      scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:true } });
+    gsap.to('.hero__body', { yPercent:-10, opacity:.12, ease:'none',
+      scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:true } });
+  }
+
+  /* ============================================================
+     GALERÍAS: una secuencia de planos por disciplina
+     ============================================================ */
+  var wide = window.matchMedia('(min-aspect-ratio: 1/1)').matches;
+
+  function buildArena(cfg){
+    var sec = document.querySelector(cfg.el);
+    if (!sec) return;
+    var CARDS = cfg.cards;
+    var plates = gsap.utils.toArray(sec.querySelectorAll('.plate'));
+    var total = plates.length;
+    var flash = sec.querySelector('.flash');
+    var elTitle = sec.querySelector('.card__title');
+    var elPlane = sec.querySelector('.card__plane');
+    var elRound = sec.querySelector('.scorebar__round em');
+    var elFill  = sec.querySelector('.scorebar__fill');
+    var elClock = sec.querySelector('.scorebar__clock');
+    /* reloj real de combate: judo 4:00, jiu jitsu 5:00. Baja con el scroll. */
+    var full = parseInt(sec.dataset.clock || '240', 10);
+    function clock(p){
+      var s = Math.max(0, Math.round(full * (1 - p)));
+      return Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2);
+    }
+    elClock.textContent = clock(0);
+    var elPips  = sec.querySelector('.scorebar__pips');
+
+    for (var p = 0; p < total; p++){
+      var pip = document.createElement('i');
+      if (p === 0) pip.className = 'on';
+      elPips.appendChild(pip);
+    }
+
+    plates.forEach(function(pl, i){
+      var o = (CARDS[i] && CARDS[i].origin) || '50% 45%';
+      /* en escritorio la vertical vive en la columna derecha: el zoom converge ahí */
+      if (wide && pl.classList.contains('is-v')) o = '78% ' + o.split(' ')[1];
+      gsap.set(pl, { opacity:0, scale:1, transformOrigin:o });
+    });
+    gsap.set(plates[0], { opacity:1 });
+
+    function endScale(i){
+      var nxt = CARDS[i + 1];
+      return (nxt && nxt.tr === 'push') ? (nxt.match || 1.45) : DRIFT;
+    }
+
+    var live = -1;
+    function paint(i){
+      if (i === live || !CARDS[i]) return;
+      live = i;
+      var c = CARDS[i];
+      elTitle.textContent = c.t;
+      elPlane.textContent = c.plane;
+      var act = plates[i], stg = sec.querySelector('.stage');
+      var im2 = act.querySelector('img');
+      if (im2 && im2.naturalWidth) stg.style.setProperty('--ar-cur', (im2.naturalWidth / im2.naturalHeight).toFixed(3));
+      stg.classList.toggle('hud-left', act.classList.contains('is-v'));
+      /* la ficha cambia de lado y de peso según el plano: el ritmo deja de repetirse */
+      var c2 = CARDS[i];
+      stg.classList.toggle('hud-right', i % 3 === 2);
+      stg.classList.toggle('hud-big', /general|Primer/.test(c2.plane));
+      stg.classList.toggle('hud-small', /Detalle|cerrado/.test(c2.plane));
+      elRound.textContent = (i + 1 < 10 ? '0' : '') + (i + 1);
+      for (var k = 0; k < elPips.children.length; k++) elPips.children[k].className = k <= i ? 'on' : '';
+      if (!reduced) gsap.fromTo(elTitle, { yPercent:45, opacity:0 }, { yPercent:0, opacity:1, duration:.5, ease:'power3.out' });
+    }
+    paint(0);
+
+    ScrollTrigger.create({
+      trigger:sec, start:'top 150%', once:true,
+      onEnter:function(){ plates.forEach(function(p){ var im = p.querySelector('img'); if (im) im.loading = 'eager'; }); }
+    });
+
+    var reel = gsap.timeline({
+      defaults:{ ease:'none' },
+      scrollTrigger:{
+        trigger:sec, start:'top top',
+        end:function(){ return '+=' + (window.innerHeight * total * 0.66); },
+        pin:sec.querySelector('.stage'), scrub:0.8, anticipatePin:1, invalidateOnRefresh:true,
+        onUpdate:function(self){
+          paint(Math.min(total - 1, Math.floor(self.progress * (total + 0.35))));
+          elFill.style.width = (self.progress * 100).toFixed(2) + '%';
+          elClock.textContent = clock(self.progress);
+        }
+      }
+    });
+
+    for (var i = 0; i < total; i++){
+      var pl = plates[i], card = CARDS[i];
+      reel.fromTo(pl, { scale:1 }, { scale:endScale(i), duration:1, ease:'none' }, i);
+      if (i === 0) continue;
+      if (card.tr === 'push'){
+        reel.set(pl, { opacity:1, clipPath:'inset(0% 0% 0% 0%)' }, i);
+        reel.set(plates[i - 1], { opacity:0 }, i);
+      } else {
+        reel.set(pl, { opacity:1 }, i);
+        reel.fromTo(pl, { clipPath:'inset(0% 0% 100% 0%)' }, { clipPath:'inset(0% 0% 0% 0%)', duration:.34, ease:'power3.inOut' }, i);
+        reel.set(plates[i - 1], { opacity:0 }, i + .34);
+        reel.to(flash, { opacity:.5, duration:.07 }, i - .04);
+        reel.to(flash, { opacity:0, duration:.24 }, i + .05);
+      }
+    }
+    reel.to({}, { duration:.35 });
+  }
+
+    GALLERIES.forEach(buildArena);
+
+  /* Cada composición entra por partes, con la tipografía adelantándose a las fotos. */
+  if (!reduced){
+    gsap.utils.toArray('.comp').forEach(function(c){
+      var tl = gsap.timeline({ scrollTrigger:{ trigger:c, start:'top 85%', once:true } });
+      tl.fromTo(c.querySelectorAll('.pw, .pb'),
+        { opacity:0, y:26 }, { opacity:1, y:0, duration:.8, ease:'power3.out', stagger:.08 });
+      tl.fromTo(c.querySelectorAll('.pc'),
+        { opacity:0, y:44, clipPath:'inset(0% 0% 100% 0%)' },
+        { opacity:1, y:0, clipPath:'inset(0% 0% 0% 0%)', duration:.95, ease:'power3.out', stagger:.11 }, .12);
+    });
+  }
+
+  /* entradas de sección */
+  if (!reduced){
+    gsap.utils.toArray('.rise').forEach(function(el){
+      gsap.to(el, { opacity:1, y:0, duration:.85, ease:'power3.out',
+        scrollTrigger:{ trigger:el, start:'top 88%', once:true } });
+    });
+  }
+
+  /* ============================================================
+     FORMULARIO Y NAVEGACIÓN
+     ============================================================ */
+  function wireForm(){
+    var btn = document.getElementById('sendBtn');
+    var note = document.getElementById('sendNote');
+    if (!btn) return;
+    document.querySelectorAll('.wire input').forEach(function(inp){
+      inp.addEventListener('keydown', function(e){ if (e.key === 'Enter'){ e.preventDefault(); btn.click(); } });
+    });
+    btn.addEventListener('click', function(){
+      var name = document.getElementById('fName').value.trim();
+      var card = document.getElementById('fCard').value.trim();
+      note.classList.remove('is-live');
+      if (!name){ note.textContent = 'Falta tu nombre.'; note.classList.add('is-live'); document.getElementById('fName').focus(); return; }
+      if (!card){ note.textContent = 'Contame qué evento es y en qué fecha.'; note.classList.add('is-live'); document.getElementById('fCard').focus(); return; }
+      window.open('https://wa.me/5491158975177?text=' + encodeURIComponent('Hola Alan, soy ' + name + '. Consulto por: ' + card), '_blank', 'noopener');
+      note.textContent = 'Mensaje preparado en WhatsApp.';
+    });
+  }
+
+  function wireNav(){
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var target = document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block:'start' });
+      });
+    });
+  }
+
+  wireForm(); wireNav();
+
+  window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+  var rz;
+  window.addEventListener('resize', function(){
+    clearTimeout(rz); rz = setTimeout(function(){ ScrollTrigger.refresh(); }, 220);
+  });
+
+})();
+</script>
+</body>
+</html>
