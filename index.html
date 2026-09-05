@@ -105,8 +105,6 @@ a{color:inherit;text-decoration:none}
 .slab:hover::before,.slab:focus-visible::before{transform:scaleY(1);transform-origin:top}
 .slab:hover,.slab:focus-visible{border-color:var(--crimson);color:var(--cream)}
 .slab:active{transform:translateY(1px)}
-.slab--wa{color:var(--crimson-ink);border-color:#3A1520}
-.slab--wa:hover,.slab--wa:focus-visible{color:var(--cream)}
 .wa-float{
   position:fixed;z-index:850;
   right:calc(18px + env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));
@@ -162,12 +160,10 @@ a{color:inherit;text-decoration:none}
 .hero h1 em{font-style:normal;color:var(--crimson)}
 .hero__meta{
   display:flex;flex-wrap:wrap;gap:clamp(22px,4vw,72px);
-  align-items:flex-end;justify-content:space-between;
+  align-items:flex-end;justify-content:flex-start;
   padding-top:clamp(22px,4vh,46px);margin-top:clamp(22px,4vh,46px);
   border-top:1px solid var(--hair);
 }
-.hero__bio{max-width:46ch;color:#C2BCB2}
-.hero__bio strong{font-weight:500;color:var(--cream)}
 .hero__scroll{display:flex;align-items:center;gap:12px;font-family:var(--data);font-size:11px;letter-spacing:.18em;color:var(--ash);white-space:nowrap}
 .hero__rail{width:64px;height:1px;background:var(--hair);overflow:hidden}
 .hero__rail i{display:block;height:100%;width:40%;background:var(--crimson);animation:rail 2.4s cubic-bezier(.76,0,.24,1) infinite}
@@ -289,13 +285,6 @@ body.no-gsap .plate img{position:relative;top:auto;right:auto;width:100%;height:
 .pc img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95);
   transition:transform .8s cubic-bezier(.16,1,.3,1),filter .5s}
 .pc:hover img{transform:scale(1.05);filter:saturate(1.08)}
-.pc figcaption{
-  position:absolute;left:0;right:0;bottom:0;padding:11px 13px;
-  font-family:var(--data);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--cream);
-  background:linear-gradient(0deg,rgba(10,10,10,.93),transparent);opacity:0;transition:opacity .35s;
-}
-.pc:hover figcaption,.pc:focus-within figcaption{opacity:1}
-.pc figcaption span{color:var(--crimson-ink);margin-right:9px}
 .pc.is-pair{outline:1px solid rgba(179,18,47,.65);outline-offset:-1px}
 
 /* tipografía que convive con la foto: contorneada por detrás, sólida cuando corta */
@@ -313,26 +302,26 @@ body.no-gsap .plate img{position:relative;top:auto;right:auto;width:100%;height:
   .comp{aspect-ratio:auto;display:flex;flex-direction:column;gap:10px;margin:0 var(--gut) clamp(36px,6vh,70px)}
   .comp::before{position:static;display:block;margin-bottom:10px;text-align:right}
   .pc{position:static;width:100% !important;transform:none;box-shadow:none}
-  .pc figcaption{opacity:1}
   .pw{position:static;font-size:13vw !important;white-space:normal;transform:none;display:block;margin:6px 0}
   .pb{display:none}
 }
 
-/* pieza de diseño intercalada: no es una foto, es un entregable */
-.pbreak{position:relative;border-top:1px solid var(--crimson)}
-.pbreak figure{position:relative;margin:0;overflow:hidden}
+/* pieza de diseño: montada sobre un fondo propio, no pegada al borde */
+.pbreak{
+  position:relative;padding:clamp(40px,7vh,90px) var(--gut);
+  border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
+  background-image:var(--mesh);background-size:36px 36px;
+}
+.pbreak::before{
+  content:"";position:absolute;inset:0;background:
+    linear-gradient(120deg,rgba(13,13,13,.97) 0%,rgba(13,13,13,.88) 40%,rgba(13,13,13,.97) 100%);
+}
+.pbreak::after{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--crimson);
+}
+.pbreak figure{position:relative;margin:0 auto;max-width:1500px;overflow:hidden;
+  box-shadow:0 40px 90px rgba(0,0,0,.7);outline:1px solid rgba(242,237,228,.14);outline-offset:0}
 .pbreak img{width:100%;height:auto;display:block}
-.pbreak figcaption{
-  position:absolute;left:var(--gut);bottom:clamp(16px,3vh,34px);
-  font-family:var(--data);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);
-  text-shadow:0 2px 16px rgba(0,0,0,.95);max-width:44ch;
-}
-.pbreak figcaption span{
-  display:inline-block;background:var(--crimson);color:var(--cream);
-  padding:4px 9px;margin-right:11px;letter-spacing:.16em;
-}
-.pbreak figcaption em{display:block;font-style:normal;text-transform:none;letter-spacing:.02em;color:#C7C1B8;margin-top:8px}
-@media (max-width:600px){.pbreak figcaption{position:static;padding:14px var(--gut) 18px;text-shadow:none;background:#0A0A0A}}
 
 /* respiro entre la secuencia y las composiciones */
 .breath{padding:clamp(70px,14vh,170px) var(--gut);border-top:1px solid var(--hair);display:grid;place-items:center;text-align:center}
@@ -404,6 +393,7 @@ body.no-gsap .plate img{position:relative;top:auto;right:auto;width:100%;height:
   padding:24px 0 30px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;
   font-family:var(--data);font-size:11px;letter-spacing:.14em;color:var(--ash);
 }
+.ends__by{display:block;font-style:normal;color:#5E5A55;margin-top:7px;letter-spacing:.12em}
 .ends__links{display:flex;flex-wrap:wrap;gap:22px}
 .ends__links a{position:relative;color:var(--cream);display:inline-block;padding:10px 0}
 .ends__links a::after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:100%;background:var(--hair);transition:background .3s}
@@ -481,11 +471,6 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
         <span class="ln indent"><span>a <em>cuerpo</em></span></span>
       </h1>
       <div class="hero__meta">
-        <p class="hero__bio">
-          <strong>Alan Montojo</strong> fotografía peleas desde adentro del tatami.
-          Entrenamientos, carteleras y esquina: el segundo exacto en que un cuerpo
-          decide seguir o rendirse.
-        </p>
         <p class="hero__scroll"><span class="hero__rail"><i></i></span> Baja para entrar</p>
       </div>
     </div>
@@ -535,7 +520,6 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
           <p class="card__title"></p>
           <div class="card__data">
             <span class="card__disc">Judo</span>
-            <span class="card__plane"></span>
           </div>
         </div>
         <div class="scorebar">
@@ -553,7 +537,6 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
   <section class="pbreak" id="pieza-a">
     <figure>
       <img data-piece="1" alt="Pieza gráfica para Kyomu Murcia Judo Team: Domina el tatami" loading="lazy">
-      <figcaption><span>Pieza</span>Domina el tatami<em>Afiche de temporada armado con la proyección del plano 08</em></figcaption>
     </figure>
   </section>
 
@@ -571,10 +554,10 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
         <span class="pw" aria-hidden="true" style="left:2%;top:60%;font-size:8vw;z-index:0;--rot:0deg">EN EL</span>
         <span class="pw is-fill" aria-hidden="true" style="left:2%;top:76%;font-size:8vw;z-index:0;--rot:0deg">BORDE</span>
         <span class="pb" aria-hidden="true" style="left:37%;top:8%;width:2.5%;height:70%;z-index:1;--rot:0deg"></span>
-        <figure class="pc" style="left:2%;top:6%;width:15%;aspect-ratio:0.563;z-index:3;--rot:-2deg"><img data-shot="2" alt="Judoka de cinturón marrón esperando de pie al borde del tatami" loading="lazy"><figcaption><span>02</span>El que espera</figcaption></figure>
-        <figure class="pc" style="left:21%;top:34%;width:13%;aspect-ratio:0.563;z-index:4;--rot:1deg"><img data-shot="4" alt="Judoka de azul saludando con la cabeza baja" loading="lazy"><figcaption><span>04</span>El saludo</figcaption></figure>
-        <figure class="pc is-pair" style="left:42%;top:2%;width:21%;aspect-ratio:0.563;z-index:5;--rot:0deg"><img data-shot="6" alt="Los dos judokas pegados cuerpo a cuerpo" loading="lazy"><figcaption><span>06</span>Cuerpo a cuerpo</figcaption></figure>
-        <figure class="pc is-pair" style="left:63%;top:30%;width:20%;aspect-ratio:0.563;z-index:6;--rot:2deg"><img data-shot="7" alt="El mismo agarre desde más cerca" loading="lazy"><figcaption><span>07</span>El empuje</figcaption></figure>
+        <figure class="pc" style="left:2%;top:6%;width:15%;aspect-ratio:0.563;z-index:3;--rot:-2deg"><img data-shot="2" alt="Judoka de cinturón marrón esperando de pie al borde del tatami" loading="lazy"></figure>
+        <figure class="pc" style="left:21%;top:34%;width:13%;aspect-ratio:0.563;z-index:4;--rot:1deg"><img data-shot="4" alt="Judoka de azul saludando con la cabeza baja" loading="lazy"></figure>
+        <figure class="pc is-pair" style="left:42%;top:2%;width:21%;aspect-ratio:0.563;z-index:5;--rot:0deg"><img data-shot="6" alt="Los dos judokas pegados cuerpo a cuerpo" loading="lazy"></figure>
+        <figure class="pc is-pair" style="left:63%;top:30%;width:20%;aspect-ratio:0.563;z-index:6;--rot:2deg"><img data-shot="7" alt="El mismo agarre desde más cerca" loading="lazy"></figure>
         <span class="pw" aria-hidden="true" style="left:85%;top:82%;font-size:2.4vw;z-index:7;--rot:0deg">06·07</span>
       </div>
   </section>
@@ -582,7 +565,6 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
   <section class="pbreak" id="pieza-b">
     <figure>
       <img data-piece="5" alt="Pieza gráfica para Kyomu Murcia Judo Team: Kyomu Murcia" loading="lazy">
-      <figcaption><span>Pieza</span>Kyomu Murcia<em>Presentación de equipo con los retratos de la misma jornada</em></figcaption>
     </figure>
   </section>
 
@@ -595,34 +577,34 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
       <div class="comp" style="--ar:16/9" data-label="01">
         <span class="pw" aria-hidden="true" style="left:58%;top:10%;font-size:9vw;z-index:1;--rot:0deg">DETALLE</span>
         <span class="pw is-fill" aria-hidden="true" style="left:58%;top:30%;font-size:2.2vw;z-index:1;--rot:0deg">ANTES DE LA LLAVE</span>
-        <figure class="pc" style="left:3%;top:8%;width:26%;aspect-ratio:0.800;z-index:3;--rot:-1deg"><img data-shot="13" alt="Antebrazos tatuados y manos entrelazadas" loading="lazy"><figcaption><span>13</span>Antebrazos</figcaption></figure>
-        <figure class="pc" style="left:34%;top:40%;width:22%;aspect-ratio:0.800;z-index:5;--rot:2deg"><img data-shot="21" alt="Manos controlando un brazo durante una llave" loading="lazy"><figcaption><span>21</span>El brazo</figcaption></figure>
+        <figure class="pc" style="left:3%;top:8%;width:26%;aspect-ratio:0.800;z-index:3;--rot:-1deg"><img data-shot="13" alt="Antebrazos tatuados y manos entrelazadas" loading="lazy"></figure>
+        <figure class="pc" style="left:34%;top:40%;width:22%;aspect-ratio:0.800;z-index:5;--rot:2deg"><img data-shot="21" alt="Manos controlando un brazo durante una llave" loading="lazy"></figure>
         <span class="pb" aria-hidden="true" style="left:60%;top:62%;width:30%;height:2.5%;z-index:2;--rot:-2deg"></span>
       </div>
       <div class="comp" style="--ar:16/10" data-label="02">
-        <figure class="pc is-pair" style="left:24%;top:4%;width:70%;aspect-ratio:1.777;z-index:2;--rot:0deg"><img data-shot="14" alt="Derribo visto desde lejos, con el gimnasio de fondo" loading="lazy"><figcaption><span>14</span>La clase entera</figcaption></figure>
+        <figure class="pc is-pair" style="left:24%;top:4%;width:70%;aspect-ratio:1.777;z-index:2;--rot:0deg"><img data-shot="14" alt="Derribo visto desde lejos, con el gimnasio de fondo" loading="lazy"></figure>
         <span class="pw is-fill" aria-hidden="true" style="left:2%;top:78%;font-size:7vw;z-index:1;--rot:0deg">EL DERRIBO</span>
-        <figure class="pc is-pair" style="left:2%;top:30%;width:22%;aspect-ratio:0.800;z-index:5;--rot:-2deg"><img data-shot="15" alt="El mismo derribo desde más cerca" loading="lazy"><figcaption><span>15</span>El derribo</figcaption></figure>
-        <figure class="pc" style="left:70%;top:44%;width:18%;aspect-ratio:0.667;z-index:6;--rot:3deg"><img data-shot="22" alt="Derribo con rashguard verde sobre el compañero" loading="lazy"><figcaption><span>22</span>El levante</figcaption></figure>
+        <figure class="pc is-pair" style="left:2%;top:30%;width:22%;aspect-ratio:0.800;z-index:5;--rot:-2deg"><img data-shot="15" alt="El mismo derribo desde más cerca" loading="lazy"></figure>
+        <figure class="pc" style="left:70%;top:44%;width:18%;aspect-ratio:0.667;z-index:6;--rot:3deg"><img data-shot="22" alt="Derribo con rashguard verde sobre el compañero" loading="lazy"></figure>
         <span class="pb" aria-hidden="true" style="left:2%;top:12%;width:2.5%;height:14%;z-index:1;--rot:0deg"></span>
       </div>
       <div class="comp" style="--ar:16/9" data-label="03">
         <span class="pw" aria-hidden="true" style="left:3%;top:70%;font-size:9vw;z-index:1;--rot:0deg">SUMISIÓN</span>
-        <figure class="pc is-pair" style="left:3%;top:10%;width:24%;aspect-ratio:0.800;z-index:4;--rot:-2deg"><img data-shot="16" alt="Proyección con rashguard rosa contra la pared" loading="lazy"><figcaption><span>16</span>Proyección</figcaption></figure>
-        <figure class="pc is-pair" style="left:25%;top:36%;width:20%;aspect-ratio:0.800;z-index:5;--rot:1deg"><img data-shot="17" alt="La misma proyección en plano cerrado" loading="lazy"><figcaption><span>17</span>El agarre</figcaption></figure>
-        <figure class="pc" style="left:50%;top:6%;width:17%;aspect-ratio:0.667;z-index:3;--rot:0deg"><img data-shot="23" alt="Triángulo desde la guardia" loading="lazy"><figcaption><span>23</span>El triángulo</figcaption></figure>
-        <figure class="pc" style="left:69%;top:38%;width:19%;aspect-ratio:0.667;z-index:4;--rot:-3deg"><img data-shot="24" alt="Llave de brazo con rashguard amarillo" loading="lazy"><figcaption><span>24</span>La palanca</figcaption></figure>
+        <figure class="pc is-pair" style="left:3%;top:10%;width:24%;aspect-ratio:0.800;z-index:4;--rot:-2deg"><img data-shot="16" alt="Proyección con rashguard rosa contra la pared" loading="lazy"></figure>
+        <figure class="pc is-pair" style="left:25%;top:36%;width:20%;aspect-ratio:0.800;z-index:5;--rot:1deg"><img data-shot="17" alt="La misma proyección en plano cerrado" loading="lazy"></figure>
+        <figure class="pc" style="left:50%;top:6%;width:17%;aspect-ratio:0.667;z-index:3;--rot:0deg"><img data-shot="23" alt="Triángulo desde la guardia" loading="lazy"></figure>
+        <figure class="pc" style="left:69%;top:38%;width:19%;aspect-ratio:0.667;z-index:4;--rot:-3deg"><img data-shot="24" alt="Llave de brazo con rashguard amarillo" loading="lazy"></figure>
         <span class="pb" aria-hidden="true" style="left:50%;top:80%;width:38%;height:2.5%;z-index:6;--rot:0deg"></span>
       </div>
       <div class="comp" style="--ar:16/9" data-label="04">
         <span class="pw" aria-hidden="true" style="left:58%;top:70%;font-size:6vw;z-index:3;--rot:0deg">DOS</span>
         <span class="pw is-fill" aria-hidden="true" style="left:58%;top:82%;font-size:6vw;z-index:3;--rot:0deg">DISTANCIAS</span>
-        <figure class="pc is-pair" style="left:44%;top:4%;width:52%;aspect-ratio:1.500;z-index:2;--rot:0deg"><img data-shot="25" alt="Control desde la guardia sobre el tatami gris" loading="lazy"><figcaption><span>25</span>La guardia</figcaption></figure>
-        <figure class="pc is-pair" style="left:3%;top:22%;width:30%;aspect-ratio:0.750;z-index:5;--rot:-2deg"><img data-shot="20" alt="Primerísimo plano de las caras y el agarre" loading="lazy"><figcaption><span>20</span>Sin salida</figcaption></figure>
-        <figure class="pc is-pair" style="left:36%;top:56%;width:17%;aspect-ratio:0.750;z-index:6;--rot:2deg"><img data-shot="18" alt="Dos compañeros en control de espalda mirando a cámara" loading="lazy"><figcaption><span>18</span>Control de espalda</figcaption></figure>
+        <figure class="pc is-pair" style="left:44%;top:4%;width:52%;aspect-ratio:1.500;z-index:2;--rot:0deg"><img data-shot="25" alt="Control desde la guardia sobre el tatami gris" loading="lazy"></figure>
+        <figure class="pc is-pair" style="left:3%;top:22%;width:30%;aspect-ratio:0.750;z-index:5;--rot:-2deg"><img data-shot="20" alt="Primerísimo plano de las caras y el agarre" loading="lazy"></figure>
+        <figure class="pc is-pair" style="left:36%;top:56%;width:17%;aspect-ratio:0.750;z-index:6;--rot:2deg"><img data-shot="18" alt="Dos compañeros en control de espalda mirando a cámara" loading="lazy"></figure>
       </div>
       <div class="comp" style="--ar:4/3" data-label="05">
-        <figure class="pc" style="left:0%;top:0%;width:100%;aspect-ratio:1.333;z-index:1;--rot:0deg"><img data-shot="26" alt="Tres compañeros sentados en el tatami riéndose al terminar" loading="lazy"><figcaption><span>26</span>Después</figcaption></figure>
+        <figure class="pc" style="left:0%;top:0%;width:100%;aspect-ratio:1.333;z-index:1;--rot:0deg"><img data-shot="26" alt="Tres compañeros sentados en el tatami riéndose al terminar" loading="lazy"></figure>
         <span class="pw" aria-hidden="true" style="left:4%;top:74%;font-size:11vw;z-index:3;--rot:0deg">DESPUÉS</span>
       </div>
   </section>
@@ -630,7 +612,6 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
   <section class="pbreak" id="pieza-c">
     <figure>
       <img data-piece="6" alt="Pieza gráfica de jiu jitsu: Scramble, BJJ live rolling" loading="lazy">
-      <figcaption><span>Pieza</span>Scramble<em>Gráfica de entrenamiento armada con el derribo del plano 22</em></figcaption>
     </figure>
   </section>
 
@@ -645,7 +626,7 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
       </div>
       <figure class="creed__portrait marked rise">
         <img data-shot="retrato" alt="Peleador sentado en el borde del tatami, transpirado, entre series">
-        <figcaption>Entre rondas. Descanso de dos minutos.</span>
+        <figcaption>Entre rondas. Descanso de dos minutos.</figcaption>
       </figure>
     </div>
 
@@ -675,13 +656,12 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
       <div class="wire__line"><label for="fCard">Evento</label><input id="fCard" name="evento" type="text" placeholder="disciplina, fecha y sede"></div>
       <div class="wire__send">
         <button class="slab" id="sendBtn" type="button">Enviar por WhatsApp<span class="slab__tick" aria-hidden="true"></span></button>
-        <a class="slab slab--wa" href="https://wa.me/5491158975177?text=Hola%20Alan%2C%20quiero%20consultar%20por%20una%20cobertura" target="_blank" rel="noopener"><span class="wa-ico" aria-hidden="true"></span>WhatsApp &nbsp;+54 9 11 5897-5177</a>
         <span class="wire__note" id="sendNote" role="status">Se abre WhatsApp con el mensaje ya escrito.</span>
       </div>
     </div>
 
     <footer class="ends">
-      <span>© 2026 Alan Montojo PH — Fotografía de combate</span>
+      <span>© 2026 Alan Montojo PH — Fotografía de combate<i class="ends__by">Sitio: VIDANOVA · César Notario</i></span>
       <nav class="ends__links" aria-label="Enlaces directos">
         <a href="https://wa.me/5491158975177" target="_blank" rel="noopener">WhatsApp</a>
         <a href="#" rel="noopener">Instagram</a>
@@ -868,7 +848,6 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
     var total = plates.length;
     var flash = sec.querySelector('.flash');
     var elTitle = sec.querySelector('.card__title');
-    var elPlane = sec.querySelector('.card__plane');
     var elRound = sec.querySelector('.scorebar__round em');
     var elFill  = sec.querySelector('.scorebar__fill');
     var elClock = sec.querySelector('.scorebar__clock');
@@ -906,7 +885,6 @@ body.no-gsap .stage__hud,body.no-gsap .flash{display:none}
       live = i;
       var c = CARDS[i];
       elTitle.textContent = c.t;
-      elPlane.textContent = c.plane;
       var act = plates[i], stg = sec.querySelector('.stage');
       var im2 = act.querySelector('img');
       if (im2 && im2.naturalWidth) stg.style.setProperty('--ar-cur', (im2.naturalWidth / im2.naturalHeight).toFixed(3));
